@@ -101,7 +101,8 @@ require_once("Include/DB.php");
 				</span>
 				</li>
 								
-				<li><a href="index.html"><img src="images/home.png" alt="Magazine"></a></li>
+				<li><a href="index.php"><img src="images/home.png" alt="Magazine"></a></li>
+				<!--
 				<li class="dropdown"><a href="index.html">Home</a>
 					<ul class="sub-menu">
 						<li><a href="#.html">#</a></li>
@@ -109,13 +110,13 @@ require_once("Include/DB.php");
 						<li><a href="#.html">#</a></li>
 					</ul>
 				</li>
-				
+				-->
                 <?php 
 				$sqlcat="select * from categorie";
 				$resultcat = mysql_query($sqlcat);
 				while($data = mysql_fetch_assoc($resultcat)) {
-				echo  "<li><a href=\"Archives _ Magazine.php\">".$data["titre"]."</a></li>";
-				}
+				echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
+								}
 				 
 				    ?>
                 <!--
@@ -357,7 +358,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 				  ";
 				  
 				  }
-				mysql_close(); 
+				
 				?>      
                        
 							
@@ -426,6 +427,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 					<div class="left span6">
 						<h3 class="title"><a href="#" title="Game News"><span>Game News</span></a></h3>
 						<div class="row-fluid">	
+							
 							<article class="post">
 								<a class="image_thumb_zoom" href="#" title="Permalink to Integer vitae libero ac risus egestas placerat urna" rel="bookmark">
 								<img width="371" height="177" src="images/shutterstock_58382248-371x177.jpg" class="attachment-post-first wp-post-image" alt="shutterstock_58382248" />
@@ -437,19 +439,36 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 								<p>Fusce aliquet non ipsum vitae scelerisque. Nullam ultricies adipiscing erat, quis bibendum enim congue porttitor. E...</p>
 							</article>
 
-							<article class="post">
-								<div class="entry clearfix">
-									<a href="#" title="Permalink to Morbi est est lectus non rutrum commodo felis quis tortor" rel="bookmark">
-									<img width="225" height="136" src="images/photodune-3834701-laughing-girl-xs-546x291.jpg" class="thumb" alt="photodune-3834701-laughing-girl-xs" />
-									<h4 class="post-title">Morbi est est lectus non rutrum com...</h4>
+
+<?php
+							
+				$sqlartGame="select * from article";
+				$resultGame = mysql_query($sqlartGame);
+				while($data = mysql_fetch_assoc($resultGame)) {
+				
+				
+				echo "<article class=\"post\">
+								<div class=\"entry clearfix\">
+									<a href=\"#\" title=".$data["contenutxt"]."  rel=\"bookmark\">
+									<img width=\"225\" height=\"136\" src=".$data["contenuimage"]."   class=\"thumb\" alt=\"photodune-3834701-laughing-girl-xs\" />
+									<h4 class=\"post-title\">".$data["titre"]."</h4>
 									</a>
-									<p>Fusce aliquet non ipsum vitae scelerisqu...</p>
-									<div class="meta">
-										<span class="date">July 11, 2013</span>
+									<p>".$data["contenutxt"]."</p>
+									<div class=\"meta\">
+										<span class=\"date\">July 11, 2013</span>
 									</div>
 								</div>
-							</article>
+							</article>";
+				
+				
+				
+				}
+				
+			?>
 
+
+							
+<!--
 							<article class="post">
 								<div class="entry clearfix">
 									<a href="#" title="Permalink to Donec consectetuer ligula vulputate sem tristique cursus" rel="bookmark">
@@ -462,26 +481,41 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 									</div>
 								</div>
 							</article>
-
+-->
 							<div class="clearfix"></div>
 						</div>
 					</div>
 
 					<div class="right span6">
+						
 						<h3 class="title"><a href="#" title="Sport News"><span>Sport News</span></a></h3>
 							<div class="row-fluid">
-								<article class="post">
-									<a class="image_thumb_zoom" href="#" title="Permalink to Quisque sodales viverra ornare vitae libero ac risus" rel="bookmark">
-									<img width="371" height="177" src="images/shutterstock_123603871-371x177.jpg" class="attachment-post-first wp-post-image" alt="gallery-1" />
+								
+								
+								<?php
+							
+				$sqlartsport="select * from article LIMIT 3";
+				$resultsport = mysql_query($sqlartsport);
+				while($data = mysql_fetch_assoc($resultsport)) {
+				
+				 echo "<class=\"post\">
+									<a class=\"image_thumb_zoom\" href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+									<img width=\"371\" height=\"177\" src=".$data["contenuimage"]." class=\"attachment-post-first wp-post-image\" alt=\"gallery-1\" />
 									</a>
-									<h4 class="post-title">
-									<a href="#" title="Permalink to Quisque sodales viverra ornare vitae libero ac risus" rel="bookmark">Quisque sodales viverra ornare vita...</a>
-									<span class="date">July 2, 2013</span>
+									<h4 class=\"post-title\">
+									<a href=\"#\" title=".$data["contenuimage"]." rel=\"bookmark\">".$data["contenutxt"]."</a>
+									<span class=\"date\">July 2, 2013</span>
 									</h4>
-									<p>Quisque sodales viverra ornare. Aenean posuere lacus sed facilisis gravida. Morbi auctor consectetur mauris a ultri...</p>
-								</article>
+									<p>".$data["contenutxt"]."</p>
+								</article>";
+				
+				}
+								
+					?>			
+								
 
-								<article class="post">
+
+						<!--		<article class="post">
 									<div class="entry clearfix">
 										<a href="#" title="Permalink to Nam nibh arcu tristique eget pretium vitae libero ac risus" rel="bookmark">
 										<img width="225" height="136" src="images/photodune-3517559-idea-s-225x136.jpg" class="thumb wp-post-image" alt="photodune-3517559-idea-s" />
@@ -506,7 +540,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 										</div>
 									</div>
 								</article>
-
+-->
 								<div class="clearfix"></div>
 
 							</div>
@@ -515,35 +549,52 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 				</div>
 
 				<div id="home-bottom" class="clearfix">
-					<h3 class="title"><a href="#" title="Fashion News"><span>Fashion News</span></a></h3>	
+					
+					
+					
+					<h3 class="title"><a href="#" title="Fashion News"><span>Fashion News à résoudre le souci des img</span></a></h3>	
 					<div class="row-fluid">	
 						<div class="span6">
-							<article class="post">
-								<a class="image_thumb_zoom" href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark">
-								<img width="371" height="177" src="images/shutterstock_134257640-225x136.jpg" alt="shutterstock_134257640" />
+						
+						<?php
+							
+				$sqlartFashion="select * from article LIMIT 3";
+				$resultFashion = mysql_query($sqlartFashion);
+				
+				
+				while($data = mysql_fetch_assoc($resultFashion)) {
+						
+						echo "		<article class=\"post\">
+								<a class=\"image_thumb_zoom\" href=\"#.html\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">
+								<img width=\"371\" height=\"177\" src=".$data["contenuimage"]."  alt=\"shutterstock_134257640\" />
 								</a>
-								<h4 class="post-title">
-								<a href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark">xsxsxsxsxsxsxsxsxsxsurna leo...</a>
-								<span class="date">August 12, 2013</span>
+								<h4 class=\"post-title\">
+								<a href=\"#.html\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["titre"]."</a>
+								<span class=\"date\">August 12, 2013</span>
 								</h4>
-								<p>Nam nibh arcu, tristique eget pretium sed, porta id quam. Praesent dignissim ante ac tincidunt molestie. Nunc quis ...</p>
+								<p>".$data["contenutxt"]."</p>
 							</article>
 						</div>
 
-						<div class="span6">
-							<article class="post">
-								<div class="entry clearfix">
-									<a href="#" title="Permalink to Suspen disse auctor dapibus neque pulvinar urna leo" rel="bookmark">
-									<img width="225" height="136" src="images/shutterstock_70184773-225x136.jpg" class="thumb" alt="shutterstock_70184773" />
-									<h4 class="post-title">Suspen disse auctor dapibus neque p...</h4>
+						<div class=\"span6\">
+							<article class=\"post\">
+								<div class=\"entry clearfix\">
+									<a href=\"#.html\" title=\"Permalink to Suspen disse auctor dapibus neque pulvinar urna leo\" rel=\"bookmark\">
+									<img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb\" alt=\"shutterstock_70184773\" />
+									<h4 class=\"post-title\">".$data["titre"]."</h4>
 									</a>
-									<p>Fusce aliquet non ipsum vitae scelerisqu...</p>
-									<div class="meta">
-										<span class="date">August 11, 2013</span>
+									<p>".$data["contenutxt"]."</p>
+									<div class=\"meta\">
+										<span class=\"date\">August 11, 2013</span>
 									</div>
 								</div>
-							</article>
-							<article class="post">
+							</article>";
+						
+				}		
+				?>		
+						
+<!--						
+						<article class="post">
 								<div class="entry clearfix">
 									<a href="#" title="Permalink to Aenean dignissim dignissim lorem pellentesque felis risus" rel="bookmark">
 									<img width="225" height="136" src="images/shutterstock_58382248-225x136.jpg" class="thumb" alt="shutterstock_58382248" />
@@ -567,7 +618,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 										</div>
 									</div>
 							</article>
-
+-->
 							<div class="clearfix"></div>
 						</div>
 					</div>
@@ -588,13 +639,29 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 			
 	 		<div id="tab1" style="display: block; ">
 				<ul id="itemContainer" class="recent-tab">
-					<li>
-						<a href="#"><img width="225" height="136" src="images/shutterstock_134257640-225x136.jpg" class="thumb" alt="shutterstock_134257640" /></a>
-						<h4 class="post-title"><a href="#">hbhbhbhbhbhbhbhb r urna...</a></h4>
-						<p>Nam nibh arcu, tristique eget pretium sed, porta id quam. Praesent dig...</p>
-						<div class="clearfix"></div>				
-					</li>
-					<li>
+					
+					
+					
+					<?php
+							
+				$sqlartPopular="select * from article";
+				$resultPopular = mysql_query($sqlartPopular);
+				while($data = mysql_fetch_assoc($resultPopular)) {
+					
+					
+					echo " <li>
+						<a href=\"#.html\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb\" alt=\"shutterstock_134257640\" /></a>
+						<h4 class=\"post-title\"><a href=\"#.html\">".$data["titre"]."</a></h4>
+						<p>".$data["contenutxt"]."</p>
+						<div class=\"clearfix\"></div>				
+					</li> ";
+				}
+					?>
+					
+					
+					
+<!--
+				<li>
 						<a href="#"><img width="225" height="136" src="images/photodune-2043745-college-student-s-225x136.jpg" class="thumb" alt="photodune-2043745-college-student-s" /></a>
 						<h4 class="post-title"><a href="#">Donec consectetuer ligula vulpu...</a></h4>
 						<p>Nam nibh arcu, tristique eget pretium sed, porta id quam. Praesent dig...</p>
@@ -642,8 +709,8 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 						<p>Fusce aliquet non ipsum vitae scelerisque. Nullam ultricies adipiscing...</p>
 						<div class="clearfix"></div>				
 					</li>
-								
-					<script type="text/javascript">
+						
+	-->				<script type="text/javascript">
 						jQuery(document).ready(function($){
 
 							/* initiate the plugin */
@@ -668,12 +735,25 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
  
 			<div id="tab2" style="display: none;">	
 				<ul id="itemContainer2" class="recent-tab">
-					<li>
-						<a href="#"><img width="225" height="136" src="images/shutterstock_134257640-225x136.jpg" class="thumb" alt="shutterstock_134257640" /></a>
-						<h4 class="post-title"><a href="http://magazine.themedesigner.in/lectus-non-rutrum-pulvinar-urna-leo-dignissim-lorem-8/">Lectus non rutrum pulvinar urna...</a></h4>
-						<p>Nam nibh arcu, tristique eget pretium sed, porta id quam. Praesent dig...</p>
-						<div class="clearfix"></div>	
-					</li>
+					
+					<?php
+							
+				$sqlartRecent="select * from article";
+				$resultrecent = mysql_query($sqlartRecent);
+				while($data = mysql_fetch_assoc($resultrecent)) {
+				
+				echo "<li>
+						<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=\"shutterstock_134257640\" /></a>
+						<h4 class=\"post-title\"><a href=\"#.html\">".$data["titre"]."</a></h4>
+						<p>".$data["contenutxt"]."</p>
+						<div class=\"clearfix\"></div>	
+					</li>";
+				}
+				?>
+					
+					
+					<!--
+					
 					<li>
 						<a href="#"><img width="225" height="136" src="images/shutterstock_70184773-225x136.jpg" class="thumb" alt="shutterstock_70184773" /></a>
 						<h4 class="post-title"><a href="#">Suspen disse auctor dapibus neq...</a></h4>
@@ -686,15 +766,31 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer place...</p>
 						<div class="clearfix"></div>	
 					</li>
+				-->
 				</ul> 	 
 			</div><!-- /#tab2 --> 
 
 			<div id="tab3" style="display: none; ">
 				<ul>
+					
+					<?php
+							
+				$sqlartComment="select * from article";
+				$resultComment = mysql_query($sqlartComment);
+				while($data = mysql_fetch_assoc($resultComment)) {
+				
+				echo "<li><span class=\"author\">Magazine Author</span> on <a href=\"#.html\" title=\" View comment \">Lorem Ipsum is simply dummy te</a></li>";
+				
+				}
+				?>	
+					
+					
+					<!--
 					<li><span class="author">Magazine Author</span> on <a href="#" title=" View comment ">Lorem Ipsum is simply dummy te</a></li>
 					<li><span class="author">Magazine Author</span> on <a href="#" title=" View comment ">Lorem Ipsum is simply dummy te</a></li>
 					<li><span class="author">magazine</span> on <a href="#" title=" View comment ">This is threaded comment level</a></li>
 					<li><span class="author">magazine</span> on <a href="#" title=" View comment ">This is threaded comment syste</a></li>
+				-->
 				</ul>
 			</div><!-- /#tab2 --> 
 	
@@ -705,6 +801,33 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 			<div class="widget widget_latestpost">
 				<h3 class="title"><span>Recent Posts</span></h3>
 				<div class="latest-posts widget">
+					
+					
+					
+					<?php
+							
+				$sqlartRecent="select * from article";
+				$resultRecent = mysql_query($sqlartRecent);
+				while($data = mysql_fetch_assoc($resultRecent)) {
+				
+				
+			
+					echo " <div class=\"latest-post clearfix\">
+						<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb fl\" alt=\"shutterstock_134257640\" title=\"\" /></a>
+						<h4><a href=\"#\" rel=\"bookmark\" title=".$data["titre"].">".$data["contenutxt"]."</a></h4>
+						<div class=\"post-time\">August 12, 2013</div>
+						<div class=\"ratings\" style=\"float: none\">
+							<input class=\"star\" type=\"radio\" name=\"recent-post-1\" value=\"1\" disabled=\"disabled\"/>
+							<input class=\"star\" type=\"radio\" name=\"recent-post-1\" value=\"2\" disabled=\"disabled\"/>
+							<input class=\"star\" type=\"radio\" name=\"recent-post-1\" value=\"3\" disabled=\"disabled\"/>
+							<input class=\"star\" type=\"radio\" name=\"recent-post-1\" value=\"4\" disabled=\"disabled\" checked=\"checked\"/>
+							<input class=\"star\" type=\"radio\" name=\"recent-post-1\" value=\"5\" disabled=\"disabled\"/>
+						</div>
+					</div>";
+					}
+					?>
+					
+					<!--
 					<div class="latest-post clearfix">
 						<a href="#"><img width="225" height="136" src="images/shutterstock_134257640-225x136.jpg" class="thumb fl" alt="shutterstock_134257640" title="" /></a>
 						<h4><a href="#" rel="bookmark" title="Lectus non rutrum pulvinar urna leo dignissim lorem">Lectus non rutrum pulvinar urna leo</a></h4>
@@ -717,6 +840,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 							<input class="star" type="radio" name="recent-post-1" value="5" disabled="disabled"/>
 						</div>
 					</div>
+					
 					
 					<div class="latest-post clearfix">
 						<a href="#"><img width="225" height="136" src="images/shutterstock_70184773-225x136.jpg" class="thumb fl" alt="shutterstock_70184773" title="" /></a>
@@ -744,6 +868,9 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 						</div>
 					</div>
 
+					
+					-->
+					
 				</div>
 			</div>
 
@@ -760,6 +887,32 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer placerat id augue non dapibus. Morbi ut ipsum cond...</p>
 					</article>
 				
+				
+				<?php
+							
+				$sqlartTechnology ="select * from article";
+				$resultTechnology = mysql_query($sqlartTechnology);
+				while($data = mysql_fetch_assoc($resultTechnology )) {
+				echo "
+				<article class=\"post\">
+						<div class=\"entry clearfix\">
+							<a href=\"#\" title=".$data["titre"]." rel=\"bookmark\">
+							<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=\"photodune-2043745-college-student-s\" />
+							<h4 class=\"post-title\">".$data["titre"]."</h4>
+							</a>
+							<p>".$data["contenutxt"]."</p>
+							<div class=\"meta\">
+								<span class=\"date\">July 11, 2013</span>
+							</div>
+						</div>
+					</article>
+				";
+				}
+				?>
+				
+				
+				
+				<!--
 					<article class="post">
 						<div class="entry clearfix">
 							<a href="#" title="Permalink to Donec consectetuer ligula vulputate sem tristique cursus" rel="bookmark">
@@ -784,13 +937,32 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 							</div>
 						</div>
 					</article>
-				</div>
+			
+-->
+			</div>
 			</div>
 			
 			<div class="video-box widget row-fluid">
 				<h3 class="title"><span style="background-color: #;color: #;">Videos Gallery</span></h3>		
 				<iframe width="369" height="188" src="https://www.youtube.com/embed/Ud_a5n77h8Y" frameborder="0" allowfullscreen></iframe>
 				<ul>
+					
+					<?php
+							
+				$sqlartVideos="select * from article";
+				$resultVideos = mysql_query($sqlartVideos);
+				while($data = mysql_fetch_assoc($resultVideos)) {
+				
+				echo "<li>
+					<a href=\"#\" title=".$data["titre"]." rel=\"bookmark\">
+					<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." alt=\"shutterstock_134257640\" />
+					</a>
+					</li>";
+				
+				}
+				?>
+					
+					<!--
 					<li>
 					<a href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark">
 					<img width="225" height="136" src="images/shutterstock_134257640-225x136.jpg" alt="shutterstock_134257640" />
@@ -814,6 +986,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 					<img width="225" height="136" src="images/shutterstock_109209743-225x136.jpg" alt="shutterstock_109209743" />
 					</a>
 					</li>
+				-->
 				</ul>
         	</div>
         				
@@ -824,7 +997,27 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 		<div id="gallery">
 			<h3 class="title"><span>All News Gallery</span></h3>
 				<ul class="gallery">
-					<li>
+
+				<?php
+							
+				$sqlartGallery="select * from article";
+				$resultGallery= mysql_query($sqlartGallery);
+				while($data = mysql_fetch_assoc($resultGallery)) {
+				
+				echo " <li>
+					<a class=\"image_thumb_zoom\" href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+					<img width=\"225\" height=\"136\" src= ".$data["contenuimage"]." alt=\"shutterstock_58382248\" />
+					</a>
+					<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+					<h4 class=\"post-title clearfix\"><img class=\"post-icon\" alt=\"Text post\" src=\"images/text.png\"> ".$data["contenutxt"]."</h4></a>
+					<div class=\"meta clearfix\">
+						<span class=\"date\">July 30, 2013</span>
+					</div>
+					</li>";
+				}
+				?>
+				<!--
+				<li>
 					<a class="image_thumb_zoom" href="#" title="Permalink to Fusce pellentesque suscipit nibh massa porta molestie iaculis" rel="bookmark">
 					<img width="225" height="136" src="images/shutterstock_58382248-225x136.jpg" alt="shutterstock_58382248" />
 					</a>
@@ -917,8 +1110,9 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 					<div class="meta clearfix">
 						<span class="date">July 18, 2013</span>
 					</div>
-					</li>
-				</ul>
+	</li>
+-->
+	</ul>
 		</div>
 
 		</div><!-- #main -->
@@ -931,6 +1125,29 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 				<div class="widget widget_latestpost">
 					<h3 class="title"><span>Latest News</span></h3>
 					<div class="latest-posts widget">
+						
+						<?php
+							
+				$sqllastnews="select * from article";
+				$resultlastnews = mysql_query($sqllastnews);
+				while($data = mysql_fetch_assoc($resultlastnews)) {
+				
+				echo "<div class=\"latest-post clearfix\">
+				<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb fl\" alt=\"shutterstock_134257640\" title=\"\" /></a>
+				<h4><a href=\"#.html\" rel=\"bookmark\" title=".$data["titre"].">".$data["titre"]."</a></h4>
+				<div class=\"post-time\">August 12, 2013</div>
+				<div class=\"ratings\" style=\"float: none\">
+				<input class=\"star\" type=\"radio\" name=\"footer-latest-post-1\" value=\"1\" disabled=\"disabled\"/>
+				<input class=\"star\" type=\"radio\" name=\"footer-latest-post-1\" value=\"2\" disabled=\"disabled\"/>
+				<input class=\"star\" type=\"radio\" name=\"footer-latest-post-1\" value=\"3\" disabled=\"disabled\"/>
+				<input class=\"star\" type=\"radio\" name=\"footer-latest-post-1\" value=\"4\" disabled=\"disabled\" checked=\"checked\"/>
+				<input class=\"star\" type=\"radio\" name=\"footer-latest-post-1\" value=\"5\" disabled=\"disabled\"/>
+				</div>
+				</div>";
+				}
+				?>
+
+<!--						
 						<div class="latest-post clearfix">
 							<a href="#"><img width="225" height="136" src="images/shutterstock_134257640-225x136.jpg" class="thumb fl" alt="shutterstock_134257640" title="" /></a>
 							<h4><a href="#" rel="bookmark" title="Lectus non rutrum pulvinar urna leo dignissim lorem">Lectus non rutrum pulvinar urna leo...</a></h4>
@@ -969,6 +1186,8 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 								<input class="star" type="radio" name="footer-latest-post-3" value="5" disabled="disabled"/>
 							</div>
 						</div>
+					
+					-->
 					</div>
 				</div>
 			</div>
@@ -982,7 +1201,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 						<div class="clearfix"></div>
 					</div>
 					<div class="magz-twitter-tweet">
-						<a href="http://twitter.com/envato"><img class="twit-pic" src="../../magazine.themedesigner.in/wp-content/themes/magazine/includes/assets/magz-twitter-sidebar-widge/envato.55.delaye" alt=""></a><div class="twit-entry">&quot;RT <a href="http://twitter.com/MicrolancerBeta">@MicrolancerBeta</a>: Want a cool t-shirt? Of course you do! We're giving away Microlancer t-shirts while stocks last. Learn more: http://t.â€¦&quot;<div class="magz-twitter-tweet-time" id="magz-twitter-tweet-time-2">4 hours ago</div></div>
+						<a href="http://twitter.com/envato"><img class="twit-pic" src="images/envato.png" alt=""></a><div class="twit-entry">&quot;RT <a href="http://twitter.com/MicrolancerBeta">@MicrolancerBeta</a>: Want a cool t-shirt? Of course you do! We're giving away Microlancer t-shirts while stocks last. Learn more: http://t.â€¦&quot;<div class="magz-twitter-tweet-time" id="magz-twitter-tweet-time-2">4 hours ago</div></div>
 						<div class="clearfix"></div>
 					</div>
 				
@@ -1064,6 +1283,7 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 
 </div><!-- #wrapper -->
 
+<?php mysql_close(); ?>
 </body>
 
 
