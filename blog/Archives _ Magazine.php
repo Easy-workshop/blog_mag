@@ -1,6 +1,9 @@
+<?php
+require_once("Include/DB.php");
+?>
 <!DOCTYPE html>
 <!-- saved from url=(0064)http://demo.minimalthemes.net/magazine-static/fashion-news.html# -->
-<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="fr"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Archives | Magazine</title>
 
 <link rel="shortcut icon" href="http://demo.minimalthemes.net/magazine-static/images/favicon.png" title="Favicon">
@@ -75,88 +78,25 @@
 				</span>
 				</li>
 								
-				<li><a href="http://demo.minimalthemes.net/magazine-static/index.html"><img src="Archives _ Magazine_files/home.png" alt="Magazine"></a></li>
-				<li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/index.html" class="dropdown-toggle disabled">Home<b class="caret"></b></a>
-					<ul class="sub-menu dropdown-menu">
-						<li><a href="http://demo.minimalthemes.net/magazine-static/magazine2.html">Homepage 2</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/blog.html">Homepage 3</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/shop-page.html">Homepage 4</a></li>
+				<li><a href="index.html"><img src="images/home.png" alt="Magazine"></a></li>
+				<li class="dropdown"><a href="index.html">Home</a>
+					<ul class="sub-menu">
+						<li><a href="#.html">#</a></li>
+						<li><a href="#.html">#</a></li>
+						<li><a href="#.html">#</a></li>
 					</ul>
 				</li>
-				<li><a href="http://demo.minimalthemes.net/magazine-static/about.html">About</a></li>
-				<li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html##" class="dropdown-toggle disabled">Page Templates<b class="caret"></b></a>
-					<ul class="sub-menu dropdown-menu">
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/index.html">Magazine 1</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/magazine2.html">Magazine 2</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/shop-page.html">Magazine 3</a></li>
-						<li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" class="dropdown-toggle disabled">Blog Page<b class="caret"></b></a>
-							<ul class="sub-menu dropdown-menu">
-								<li><a href="http://demo.minimalthemes.net/magazine-static/blog.html">Blog</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/blog-left.html">Blog Left</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/blog-right.html">Blog Right</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/single-post.html">Single Blog</a></li>
-							</ul>
-						</li>
-                        <li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" class="dropdown-toggle disabled">Shop Page<b class="caret"></b></a>
-							<ul class="sub-menu dropdown-menu">
-								<li><a href="http://demo.minimalthemes.net/magazine-static/shop-page.html">Shop</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/shop-detail.html">Shop Detail</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/cart.html">Cart Page</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/checkout.html">Checkout Page</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/account.html">Account Page</a></li>
-							</ul>
-						</li>
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/fullwidth.html">Fullwidth</a></li>
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/features.html">Features</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/contact.html">Contact</a></li>
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/author.html">Author Pages</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/404.html">Error 404</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/fullwidth.html">Full Width</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/gallery-2col.html">Galleries – 2 Columns</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/gallery-3col.html">Galleries – 3 Columns</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/gallery-4col.html">Galleries – 4 Columns</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/sitemap.html">Site Map</a></li>
-					</ul>
-				</li>
-                <li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html##" class="dropdown-toggle disabled">Shortcodes<b class="caret"></b></a>
-					<ul class="sub-menu dropdown-menu">
-						<li><a href="http://demo.minimalthemes.net/magazine-static/accordion.html">Accordion</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/blockquotes.html">Blockquotes</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/button.html">Buttons</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/column.html">Columns</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/dropcap.html">Dropcaps</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/heading.html">Heading</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/tabs.html">Tabs</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/tables.html">Tables</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/warning.html">Warning</a></li>
-					</ul>
-				</li>
-				<li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/blog.html" class="dropdown-toggle disabled">Blog<b class="caret"></b></a>
-					<ul class="sub-menu dropdown-menu">
-						<li><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html">Fashion News</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#">Game News</a></li>
-						<li><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#">Sport News</a></li>
-						<li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" class="dropdown-toggle disabled">Technology<b class="caret"></b></a>
-							<ul class="sub-menu dropdown-menu">
-								<li><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html">Fashion News</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#">Game News</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#">Sport News</a></li>
-								<li><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#">Technology</a></li>
-							</ul>
-						</li>
-					</ul>
-				</li>
-				<li class="dropdown"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" class="dropdown-toggle disabled">Shop Page<b class="caret"></b></a>
-                    <ul class="sub-menu dropdown-menu">
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/shop-page.html">Product Page</a></li>
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/shop-detail.html">Product Detail</a></li>
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/cart.html">Cart Page</a></li>
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/checkout.html">checkout</a></li>
-                        <li><a href="http://demo.minimalthemes.net/magazine-static/order.html">Order Detail</a></li>
-                    </ul>
-                </li>
-				<li><a href="http://demo.minimalthemes.net/magazine-static/contact.html">Contact</a></li>
-			</ul>
+				
+                
+                
+               <?php 
+				$sqlcat="select * from categorie";
+				$resultcat = mysql_query($sqlcat);
+				while($data = mysql_fetch_assoc($resultcat)) {
+				echo  "<li><a href=\"Archives _ Magazine.php\">".$data["titre"]."</a></li>";
+				}
+				 
+				    ?>
             </div><!--/.nav-collapse -->
 			
         </nav><!-- /.navbar -->
@@ -166,60 +106,38 @@
 	<div id="headline" class="container">
 	<div class="row-fluid">
 		
-		<div class="span3">
-			<article class="post">
-				<a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Donec consectetuer ligula vulputate sem tristique cursus" rel="bookmark">
-				<img width="225" height="136" src="Archives _ Magazine_files/photodune-2043745-college-student-s-225x136.jpg" class="thumb" alt="photodune-2043745-college-student-s">
-				</a>
-				<div class="entry">
-					<h3><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Donec consectetuer ligula vulputate sem tristique cursus" rel="bookmark">Donec consectetuer ligula vulputate...</a></h3>
-					<p>5 months ago </p>
-				</div>
-				<div class="clearfix"></div>
-			</article>
-		</div>
-		
-		<div class="span3">
-			<article class="post">
-				<a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Nam nibh arcu tristique eget pretium vitae libero ac risus" rel="bookmark">
-				<img width="225" height="136" src="Archives _ Magazine_files/photodune-3517559-idea-s-225x136.jpg" class="thumb" alt="photodune-3517559-idea-s">
-				</a>
-				<div class="entry">
-					<h3><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Nam nibh arcu tristique eget pretium vitae libero ac risus" rel="bookmark">Nam nibh arcu tristique eget pretiu...</a></h3>
-					<p>5 months ago </p>
-				</div>
-				<div class="clearfix"></div>
-			</article>
-		</div>
+        
+ <?php 
+				$sqlart="select * from article";
+				$resultart = mysql_query($sqlart);
+				while($data = mysql_fetch_assoc($resultart)) {
+                   echo "<div class=\"span3\">";
+                   echo " <article class=\"post\">";
+		echo "<a href=\"#\" title=".$data["titre"]."rel=\"bookmark\">
+		<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=".$data["contenuimage"]." />	</a>";
 
-		<div class="span3">
-			<article class="post">
-				<a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Aliquam quam lectus pulvinar urna leo dignissim lorem" rel="bookmark">
-				<img width="225" height="136" src="Archives _ Magazine_files/shutterstock_2114081-225x136.jpg" class="thumb" alt="shutterstock_2114081">
-				</a>
-				<div class="entry">
-					<h3><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Aliquam quam lectus pulvinar urna leo dignissim lorem" rel="bookmark">Aliquam quam lectus pulvinar urna l...</a></h3>
-					<p>6 months ago </p>
-				</div>
-				<div class="clearfix"></div>
-			</article>
-		</div>
+			
+				
+		echo "<div class=\"entry\">
+					<h3><a href=\"#\" title=".$data["contenutxt"]. "rel=\"bookmark\">".$data["titre"]."</a></h3>
+					<p>5 months ago </p>
+				</div>";
+				
+			echo "<div class=\"clearfix\"></div>
+			</article></div>" ;
 
-		<div class="span3">
-			<article class="post">
-				<a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Phasellus scelerisque massa molestie iaculis lectus pulvinar" rel="bookmark">
-				<img width="225" height="136" src="Archives _ Magazine_files/shutterstock_109209743-225x136.jpg" class="thumb" alt="shutterstock_109209743">
-				</a>
-				<div class="entry">
-					<h3><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Phasellus scelerisque massa molestie iaculis lectus pulvinar" rel="bookmark">Phasellus scelerisque massa molesti...</a></h3>
-					<p>6 months ago </p>
-				</div>
-				<div class="clearfix"></div>
-			</article>
-		</div>	
+	
+				
+				}
+				
+				
+				    ?>
 		
 	</div>
 	</div>
+
+
+
 
 	<div id="intr" class="container">
 		<div class="row-fluid">
@@ -250,28 +168,51 @@
 			</div><!-- .archive-header -->
 				
 				<article class="post">
-					<h2 class="entry-title">
-						<span class="the_title"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark">Lectus non rutrum pulvinar urna leo dignissim lorem</a></span>
-						<span class="entry-cat"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html" title="View all posts in Fashion News" rel="category tag">Fashion News</a></span>
-					</h2>
-					<div class="entry-meta row-fluid">
-						<ul class="clearfix">
-							<li><img alt="" src="Archives _ Magazine_files/avatar.png" height="15" width="15"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Posts by Admin" rel="author">Admin</a></li>
-							<li><img src="Archives _ Magazine_files/time.png" alt="">August 12, 2013</li>
-							<li><img src="Archives _ Magazine_files/view-bg.png" alt="">5726 </li>
-							<li><img src="Archives _ Magazine_files/komen.png" alt=""><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Comment on Lectus non rutrum pulvinar urna leo dignissim lorem">0 Comment</a></li>
-							<li class="tagz"><img src="Archives _ Magazine_files/tags-icon.png" alt=""><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" rel="tag">Grid</a><br></li>
-						</ul>
-					</div>						
-					<div class="entry-content">
-						<a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark">
-						<p><img width="774" height="320" src="Archives _ Magazine_files/shutterstock_134257640-774x320.jpg" alt="shutterstock_134257640"></p>
-						</a>
-						<p>Nam nibh arcu, tristique eget pretium sed, porta id quam. Praesent dignissim ante ac tincidunt molestie. Nunc quis turpis vel ipsum bibendum fringilla id et risus. In ultricies, eros quis viverra pretium, neque purus tincidunt neque, at egestas est lectus non ante. Phasellus imperdiet laoreet sapien, quis consectetur urna adipiscing placerat. Cum sociis natoque penatibus
-						</p><p class="moretag"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#"> Read more</a></p>
-					</div>
-				</article>
+					
+						
+                        <?php 
 				
+				$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie";
+				$resultartgroup = mysql_query($sqlartgroup);
+				while($data = mysql_fetch_assoc($resultartgroup)) {
+				
+				echo " <h2 class=\"entry-title\"><span class=\"the_title\"><a href=\"#.html#\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["titre"]."</a></span>";
+				
+				echo " <span class=\"entry-cat\"><a href=\"#.html#\" title=\"View all posts in Fashion News\" rel=\"category tag\">".$data["titre"]."</a></span></h2>";
+					
+				echo " <div class=\"entry-meta row-fluid\">
+						<ul class=\"clearfix\">
+							<li><img alt=\"\" src=\"Archives _ Magazine_files/avatar.png\" height=\"15\" width=\"15\"><a href=\"#.html#\" title=\"Posts by Admin\" rel=\"author\">Admin</a></li>
+							<li><img src=\"Archives _ Magazine_files/time.png\" alt=\"\">August 12, 2013</li>
+							<li><img src=\"Archives _ Magazine_files/view-bg.png\" alt=\"\">5726 </li>
+							<li><img src=\"Archives _ Magazine_files/komen.png\" alt=\"\"><a href=\"#.html#\" title=".$data["titre"].">0 Comment</a></li>
+							<li class=\"tagz\"><img src=\"Archives _ Magazine_files/tags-icon.png\" alt=\"\"><a href=\"#.html\" rel=\"tag\">Grid</a><br></li>
+						</ul>
+					</div>";	
+				
+				
+				echo  " <div class=\"entry-content\">
+						<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+						<p><img width=\"774\" height=\"320\" src=\"Archives _ Magazine_files/shutterstock_134257640-774x320.jpg\" alt=\"shutterstock_134257640\"></p>
+						</a>
+						<p>".$data["contenutxt"]."
+						</p><p class=\"moretag\"><a href=\"#.html\"> Read more</a></p>
+					</div>
+				</article>";
+				
+				
+				
+				
+				}
+
+					?>
+                        
+                       
+						
+					
+										
+					
+				<!--
 				<article class="post">
 					<h2 class="entry-title">
 						<span class="the_title"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#" title="Permalink to Suspen disse auctor dapibus neque pulvinar urna leo" rel="bookmark">Suspen disse auctor dapibus neque pulvinar urna leo</a></span>
@@ -362,7 +303,7 @@
 						</p><p class="moretag"><a href="http://demo.minimalthemes.net/magazine-static/fashion-news.html#"> Read more</a></p>
 					</div>
 				</article>
-
+-->
 			</div><!-- #main-left -->
 
 		<div id="sidebar" class="span4">
