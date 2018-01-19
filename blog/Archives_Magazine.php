@@ -1,5 +1,5 @@
 <?php
-require_once("Include/DB.php");
+require_once("../Include/DB.php");
 ?>
 <!DOCTYPE html>
 <!-- saved from url=(0064)http://demo.minimalthemes.net/magazine-static/fashion-news.html# -->
@@ -77,7 +77,10 @@ require_once("Include/DB.php");
 					
 				</span>
 				</li>
-								
+					<?php 
+					echo "mon param-->".$_GET['nomcategorie'];
+					
+					?>			
 				<li><a href="index.php"><img src="images/home.png" alt="Magazine"></a></li>
 				<!--
 				<li class="dropdown"><a href="index.html">Home</a>
@@ -95,7 +98,8 @@ require_once("Include/DB.php");
 				$sqlcat="select * from categorie";
 				$resultcat = mysql_query($sqlcat);
 				while($data = mysql_fetch_assoc($resultcat)) {
-				echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
+				//echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
+				echo  "<li><a href=\"Archives_Magazine.php?nomcategorie=".$data["titre"]."\">".$data["titre"]."</a></li>";
 				}
 				 
 				    ?>

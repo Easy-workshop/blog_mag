@@ -1,5 +1,5 @@
 <?php
-require_once("Include/DB.php");
+require_once("../Include/DB.php");
 ?>
 
 <!DOCTYPE html>
@@ -115,7 +115,9 @@ require_once("Include/DB.php");
 				$sqlcat="select * from categorie";
 				$resultcat = mysql_query($sqlcat);
 				while($data = mysql_fetch_assoc($resultcat)) {
-				echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
+				//echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
+				echo  "<li><a href=\"Archives_Magazine.php?nomcategorie=".$data["titre"]."\">".$data["titre"]."</a></li>";
+				
 								}
 				 
 				    ?>
