@@ -112,6 +112,7 @@ require_once("../Include/DB.php");
 				</li>
 				-->
                 <?php 
+				// partie:1 menu 
 				$sqlcat="select * from categorie";
 				$resultcat = mysql_query($sqlcat);
 				while($data = mysql_fetch_assoc($resultcat)) {
@@ -142,7 +143,8 @@ require_once("../Include/DB.php");
 		
 		
 				<?php 
-				$sqlart="select * from article";
+				//partie:2 partie haute afficher (4 articles affichage de juste les titres) bon désign
+				$sqlart="select * from article LIMIT 4";
 				$resultart = mysql_query($sqlart);
 				while($data = mysql_fetch_assoc($resultart)) {
                    echo "<div class=\"span3\">";
@@ -153,7 +155,7 @@ require_once("../Include/DB.php");
 			
 				
 		echo "<div class=\"entry\">
-					<h3><a href=\"#\" title=".$data["contenutxt"]. "rel=\"bookmark\">".$data["titre"]."</a></h3>
+					<h3><a href=\"#\" title=".$data["titre"]. " rel=\"bookmark\">".$data["titre"]."</a></h3>
 					<p>5 months ago </p>
 				</div>";
 				
@@ -221,9 +223,11 @@ require_once("../Include/DB.php");
 			<div class="brnews span9">
 				<h3>News en vrac</h3>
 				<ul id="scroller">
-					<li><p><a href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark"><span class="title">xxxxxxxxxxxx...</a></p></li>
-					<li><p><a href="#" title="Permalink to Suspen disse auctor dapibus neque pulvinar urna leo" rel="bookmark"><span class="title">Le Nouvel An : 1er Janvier | Manifeste de l'Indépendance : 11 Janvier | Al mawlid : 20 Novembre | Fête du travail : 1er Mai</span> qqqqqqqqqqqqqq...</a></p></li>
-					<li><p><a href="#" title="Permalink to Porta lorem ipsum dolor sit amet, consectetur adipiscing risus" rel="bookmark"><span class="title">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv...</a></p></li>
+					<!--partie:3 text défilant mettre les fêtes marocaines et francaise-->
+					
+					<li><p><a href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark"><span class="title">fêtes Marocaine <b>2018</b> : Manifeste de l'Indépendance :11 Janvier | Al mawlid : 20 Novembre | Fête du travail : 1er Mai | Aid EL-Fitr : 15 Juin</a></p></li>
+					<li><p><a href="#" title="Permalink to Suspen disse auctor dapibus neque pulvinar urna leo" rel="bookmark"><span class="title">fêtes France <b>2018</b> : Lundi de Pâques 2018 : 2 avril | Fête du travail : 1 mai | Victoire 1945 2018 : 8 mai | Ascension 2018 :10 mai </a></p></li>
+					<li><p><a href="#" title="Permalink to Porta lorem ipsum dolor sit amet, consectetur adipiscing risus" rel="bookmark"><span class="title">à faire...</a></p></li>
 				</ul>
 			</div>
 		
@@ -245,18 +249,17 @@ require_once("../Include/DB.php");
 						<ul class="slides">
 							
                             <?php
-							
-				$sqlart2="select * from article";
+							//partie:4 la carouselle 
+				
+				
+				$sqlart2="select * from article Limit 4";
 				$resultart2 = mysql_query($sqlart2);
 				while($data = mysql_fetch_assoc($resultart2)) {
-							
-echo "<li data-thumb=".$data["contenuimage"]."> <a href=\"blog-detaildF.php\" title=".$data["contenutxt"]." rel=\"bookmark\">";	
-							
-echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"photodune-3834701-laughing-girl-xs\" /> </a>";
-				
-	echo" <div class=\"entry\">
-									<h4>Morbi est est lectus non rutrum commodo felis quis tortor...</h4>
-									<p>Fusce aliquet non ipsum vitae scelerisque. Nullam ultricies adipiscing erat, qui...</p>
+                 echo "<li data-thumb=".$data["contenuimage"]."> <a href=\"Archives_Magazine.php\" title=".$data["titre"]." rel=\"bookmark\">";	
+				 echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"photodune-3834701-laughing-girl-xs\" /> </a>";
+                 echo" <div class=\"entry\">
+									<h4>".$data["titre"]."</h4>
+									<p>".substr($data["contenutxt"],0,100)."</p>
 								</div>
 							</li>
 				
@@ -310,11 +313,11 @@ echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"phot
 							<ul>
 								<?php
 							
-				$sqlartpop="select * from article";
+				$sqlartpop="select * from article limit 4";
 				$resultpop = mysql_query($sqlartpop);
 				while($data = mysql_fetch_assoc($resultpop)) {
 				
-				echo "<li><a href=\"#\" title=".$data["titre"]." rel=\"bookmark\"><h4 class=\"post-title\">".$data["contenutxt"]."</h4></a></li>";
+				echo "<li><a href=\"#\" title=".$data["titre"]." rel=\"bookmark\"><h4 class=\"post-title\">".$data["titre"]."</h4></a></li>";
 				
 				}
 				

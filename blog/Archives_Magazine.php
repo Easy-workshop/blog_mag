@@ -114,7 +114,7 @@ require_once("../Include/DB.php");
 		
         
  <?php 
-				$sqlart="select * from article";
+				$sqlart="select * from article LIMIT 4";
 				$resultart = mysql_query($sqlart);
 				while($data = mysql_fetch_assoc($resultart)) {
                    echo "<div class=\"span3\">";
@@ -151,9 +151,11 @@ require_once("../Include/DB.php");
 				<h3>News en vrac</h3>
 				<div class="simply-scroll simply-scroll-container"><div class="simply-scroll-clip">
 				<ul id="scroller" class="simply-scroll-list" style="width: 2750px;">
-					<li><p><a href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark"><span class="title">xxxxxxxxxxxx...</a></p></li>
-					<li><p><a href="#" title="Permalink to Suspen disse auctor dapibus neque pulvinar urna leo" rel="bookmark"><span class="title">Le Nouvel An : 1er Janvier | Manifeste de l'Indépendance : 11 Janvier | Al mawlid : 20 Novembre | Fête du travail : 1er Mai</span> qqqqqqqqqqqqqq...</a></p></li>
-					<li><p><a href="#" title="Permalink to Porta lorem ipsum dolor sit amet, consectetur adipiscing risus" rel="bookmark"><span class="title">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv...</a></p></li>
+					<!--partie:3 text défilant mettre les fêtes marocaines et francaise-->
+					
+					<li><p><a href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark"><span class="title">fêtes Marocaine <b>2018</b> : Manifeste de l'Indépendance :11 Janvier | Al mawlid : 20 Novembre | Fête du travail : 1er Mai | Aid EL-Fitr : 15 Juin</a></p></li>
+					<li><p><a href="#" title="Permalink to Suspen disse auctor dapibus neque pulvinar urna leo" rel="bookmark"><span class="title">fêtes France <b>2018</b> : Lundi de Pâques 2018 : 2 avril | Fête du travail : 1 mai | Victoire 1945 2018 : 8 mai | Ascension 2018 :10 mai </a></p></li>
+					<li><p><a href="#" title="Permalink to Porta lorem ipsum dolor sit amet, consectetur adipiscing risus" rel="bookmark"><span class="title">à faire...</a></p></li>
 				</ul>
 				</div>
 				</div>
@@ -173,7 +175,7 @@ require_once("../Include/DB.php");
 		<div id="main" class="row-fluid">
 			<div id="main-left" class="span8">
 			<div class="entry-header">
-				<h3>Category Archives: <span>Fashion News</span></h3>
+				<h3>Category: <span>Fashion News</span></h3>
 			</div><!-- .archive-header -->
 				
 				<article class="post">
@@ -202,7 +204,7 @@ require_once("../Include/DB.php");
 				
 				echo  " <div class=\"entry-content\">
 						<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
-						<p><img width=\"774\" height=\"320\" src=\"Archives_Magazine_files/shutterstock_134257640-774x320.jpg\" alt=\"shutterstock_134257640\"></p>
+						<p><img width=\"774\" height=\"320\" src=".$data["contenuimage"]." alt=\"shutterstock_134257640\"></p>
 						</a>
 						<p>".$data["contenutxt"]."
 						</p><p class=\"moretag\"><a href=\"#.html\"> Read more</a></p>

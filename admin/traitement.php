@@ -3,9 +3,8 @@ require_once("../Include/DB.php");
 
 //$title="walou";
 //champ
-if(isset($_POST['Title']))      
+if($_POST['Title']!="")      
 	$Title=$_POST['Title'];
-
 else      
 	$Title="";
 
@@ -45,30 +44,30 @@ else
 
 $contenuimage="";
 $contenuimage=$target.$file_name;
+
+
 //champ 1:publie et 0: brouillon
 
-$affciher="rien";
-if(!isset($_POST['Publier'])&& !isset($_POST['Brouillon'])) {
-$affciher="vide";
-}else if(isset($_POST['Publier'])&& !isset($_POST['Brouillon'])) {
-$affciher="1";
-}
-else if(!isset($_POST['Publier'])&& isset($_POST['Brouillon'])) {
-$affciher="0";
-}
+if(($_POST['choix'])!=""&& $_POST['choix']=="1")      
+$affciher="1"; else $affciher="0";
+
+
+
+
 
 //champ -->2018-01-20 00:00:00
 
-$d=date("Y-m-d");
-$h=date("H:i");
-$datecreationcourante=$d."".$h;
+$d=date("Y-m-d H:i");
+$datecreationcourante=$d;
+
+
 
 if($_POST['datecreation']!="") { 
 $datecreation=$_POST['datecreation'];
 }else{     
 $datecreation=$datecreationcourante;
 }
-
+//echo "------>datecreationcourante= ".$datecreation."<br/>";
 
 
 

@@ -81,14 +81,15 @@ require_once("../Include/DB.php");
    
    
    <div class="radio">
-  <label class="radio-inline"><input type="radio" name="Publier" value="Publier">Publier</label>
-<label class="radio-inline"><input type="radio" name="Brouillon" value="Brouillon">Brouillon</label>
+  <label class="radio-inline"><input type="radio" name="choix" value="1" >Publier</label>
+<label class="radio-inline"><input type="radio" name="choix" value="0" checked="checked">Brouillon</label>
    </div> 
    
    <div class="form-group">
               <label for="datecreation">date de creation</label>
               <input type="text" name="datecreation" value="" class="form-control">
-            </div>
+            exemple : 2018-01-20 02:09:17
+			</div>
    
 <!--<input type="submit" value="Envoyer" name="envoyer">-->
 <input type="submit" value="Envoyer" name="submit" />
