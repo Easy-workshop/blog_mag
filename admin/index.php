@@ -7,7 +7,7 @@ require_once("../Include/DB.php");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Blogen Admin Area</title>
+  <title>Administration</title>
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
@@ -32,7 +32,8 @@ require_once("../Include/DB.php");
         <div class="col-md-6">
 		
 		<form enctype="multipart/form-data" action="traitement.php" method="post">
-		<!-- <form method="POST" action="traitement.php">-->
+		 <!--<form method="POST" action="traitement.php">-->
+			
 			<div class="form-group">
               <label for="title">Title</label>
               <input type="text" name="Title" class="form-control">
@@ -73,6 +74,20 @@ require_once("../Include/DB.php");
             <div class="form-group">
               <label for="body">Body</label>
               <textarea name="editor1" class="form-control"></textarea>
+            </div>
+   
+   
+   
+   
+   
+   <div class="radio">
+  <label class="radio-inline"><input type="radio" name="Publier" value="Publier">Publier</label>
+<label class="radio-inline"><input type="radio" name="Brouillon" value="Brouillon">Brouillon</label>
+   </div> 
+   
+   <div class="form-group">
+              <label for="datecreation">date de creation</label>
+              <input type="text" name="datecreation" value="" class="form-control">
             </div>
    
 <!--<input type="submit" value="Envoyer" name="envoyer">-->
