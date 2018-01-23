@@ -35,7 +35,7 @@ CREATE TABLE `article` (
   `nbrlecture` int(11) DEFAULT NULL,
   `datecreation` timestamp NULL DEFAULT NULL,
   `idcategorie` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_bin;
 
 --
 -- Contenu de la table `article`
@@ -59,7 +59,7 @@ CREATE TABLE `categorie` (
   `titre` varchar(50) DEFAULT NULL,
   `afficher` int(11) DEFAULT NULL,
   `iconecategorie` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=INNODB CHARACTER SET utf8 COLLATE utf8_bin;
 
 --
 -- Contenu de la table `categorie`
