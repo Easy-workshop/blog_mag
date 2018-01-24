@@ -42,11 +42,12 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`idarticle`, `titre`, `contenutxt`, `contenuimage`, `afficher`, `nbrlecture`, `datecreation`, `idcategorie`) VALUES
-(2, 'CECI EST L ARTICLE1 yyyyyyyyy sssk', 'bla bla bla 11', 'images/photodune-2043745-college-student-s-225x136.jpg', 1, 0, '0000-00-00 00:00:00', 1),
-(3, 'CECI EST L ARTICLE2 yyyyyyyyy sssk', 'bla bla bla 22', 'images/photodune-3517559-idea-s-225x136.jpg', 1, 0, '0000-00-00 00:00:00', 1),
-(4, 'CECI EST L ARTICLE3 zzzzzzzzzzzz sssk', 'bla bla bla 33', 'images/shutterstock_2114081-225x136.jpg', 1, 0, '0000-00-00 00:00:00', 1),
-(55, 'Devenez 100% anonyme', 'installer logiciel sécuritykiss-->changer votre IP votre pays et vérifier même votre connexion\r\n2) une fois installer assurez-vous que vous êtes bien protégé utiliser les service en ligne :\r\nhttps://ipleak.net/ ou bien https://www.dnsleaktest.com/\r\n', 'images/surr.svg', 1, 0, '2018-01-23 00:00:00', 2),
-(56, 'un autre text 66666', 'lskds lskdsl sdklskd', 'images/surr.svg', 1, 0, '2018-01-23 00:00:00', 2);
+(2, 'La légende : Fatal fury ', 'fatal fury est un jeu de baston qui a vu le jour dans les année 90 pour concurencer l indétronable street fighter 2', 'images/fft.svg', 1, 0, '0000-00-00 00:00:00', 3),
+(3, 'La game boy : console des riches', 'Parmi les jeux les plus populaire y avait ce tortue ninja , un jeux qu on ne peut pas voir sa cartouche dans les magazins et ne pas cracker pour l avoir', 'images/game_boy.svg', 1, 0, '0000-00-00 00:00:00', 3),
+(4, 'Golden axe ou conan le barbar', 'golden axe 1 faisait parti des jeux vendus d office avec la Megadrive se rajoute aussi Sonic,Shinobi et street of rage <br/> ce fut une trés belle époque', 'images/golden-axe.svg', 1, 0, '0000-00-00 00:00:00', 3),
+(55, 'Résident Evil 4 : acheter la gamecube pour cela', 'l agent américain doit sauver la fille du président et pour cela il va voir de toutes les oouleus dans un monde sombre et contre des créatures pas trop gentilles', 'images/Resident-evil.svg', 1, 0, '2018-01-23 00:00:00', 3),
+
+(56, 'Le stress comment le vaincre ', 'De nos jours il est trés difficile d éviter le stress à cause de la cadence de vie rapide il existe des solutions rapide pour y remédier :<br/> écouter de la music douce<br/>boire de l eau<br/>faire du sport<br/>éviter de parler avec les personnes toxique<br/>', 'images/stress.svg', 1, 0, '2018-01-23 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -66,15 +67,10 @@ CREATE TABLE `categorie` (
 --
 
 INSERT INTO `categorie` (`idcategorie`, `titre`, `afficher`, `iconecategorie`) VALUES
-(1, 'Actualite', 1, ''),
-(2, 'Art-culture', 1, ''),
-(3, 'Auto-Moto', 1, ''),
-(4, 'Femme', 1, ''),
-(5, 'Homme', 1, ''),
-(6, 'Informatique', 1, ''),
-(7, 'Technologie', 1, ''),
-(8, 'Histoire', 1, '');
-
+(1, 'Emploi', 1, ''),
+(2, 'informatique', 1, ''),
+(3, 'retro-gaming', 1, ''),
+(4, 'insolite.ma', 1, '');
 --
 -- Index pour les tables exportées
 --

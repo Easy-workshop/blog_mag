@@ -312,7 +312,8 @@ require_once("../Include/DB.php");
 						<h3>Les news populaires</h3>
 							<ul>
 								<?php
-							
+				//partie:5 les dernière news limiter à 4
+				
 				$sqlartpop="select * from article limit 4";
 				$resultpop = mysql_query($sqlartpop);
 				while($data = mysql_fetch_assoc($resultpop)) {
@@ -648,8 +649,8 @@ require_once("../Include/DB.php");
 					
 					
 					<?php
-							
-				$sqlartPopular="select * from article";
+					// partie 6 : tableau a trois colonne limiter à 4 		
+				$sqlartPopular="select * from article LIMIT 4";
 				$resultPopular = mysql_query($sqlartPopular);
 				while($data = mysql_fetch_assoc($resultPopular)) {
 					
@@ -742,8 +743,8 @@ require_once("../Include/DB.php");
 				<ul id="itemContainer2" class="recent-tab">
 					
 					<?php
-							
-				$sqlartRecent="select * from article";
+							// recent limiter à 4
+				$sqlartRecent="select * from article LIMIT 4";
 				$resultrecent = mysql_query($sqlartRecent);
 				while($data = mysql_fetch_assoc($resultrecent)) {
 				
@@ -779,8 +780,8 @@ require_once("../Include/DB.php");
 				<ul>
 					
 					<?php
-							
-				$sqlartComment="select * from article";
+						// commentaire limiter à 4	
+				$sqlartComment="select * from article LIMIT 4";
 				$resultComment = mysql_query($sqlartComment);
 				while($data = mysql_fetch_assoc($resultComment)) {
 				
