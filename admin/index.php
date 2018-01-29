@@ -137,7 +137,112 @@ require_once("../Include/DB.php");
   
 
  
-		  
+		 
+<!-- liste des post par catégorie -->
+
+
+<section id="posts">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4>Latest Posts</h4>
+            </div>
+            <table class="table table-striped">
+              <thead class="thead-inverse">
+                <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Date Posted</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                
+				
+				
+				
+				<?php
+							
+				$sqlrecuppostcat="select ar.idarticle as idarticle,ar.titre as titrearticle,cat.titre as titrecategorie,ar.datecreation from article ar,categorie cat where ar.idcategorie=cat.idcategorie";
+				$resultrecuppostcat = mysql_query($sqlrecuppostcat);
+				while($data = mysql_fetch_assoc($resultrecuppostcat)) {
+				
+				
+				echo " <tr>
+                  <td scope=\"row\">".$data["idarticle"]."</td>
+                  <td>".$data["titrearticle"]."</td>
+                  <td>".$data["titrecategorie"]."</td>
+                  <td>".$data["datecreation"]."</td>
+                  <td><a href=\"detailspost.php?idarticle=".$data["idarticle"]."\" class=\"btn btn-secondary\">
+                  <i class=\"fa fa-angle-double-right\"></i> Details
+                  </a></td>
+                </tr>";
+				
+				}
+				?>
+				
+				
+                <!--
+				<tr>
+                  <td scope="row">2</td>
+                  <td>Post Two</td>
+                  <td>Tech Gadgets</td>
+                  <td>July 13, 2017</td>
+                  <td><a href="details.html" class="btn btn-secondary">
+                    <i class="fa fa-angle-double-right"></i> Details
+                  </a></td>
+                </tr>
+                <tr>
+                  <td scope="row">3</td>
+                  <td>Post Three</td>
+                  <td>Web Development</td>
+                  <td>July 14, 2017</td>
+                  <td><a href="details.html" class="btn btn-secondary">
+                    <i class="fa fa-angle-double-right"></i> Details
+                  </a></td>
+                </tr>
+                <tr>
+                  <td scope="row">4</td>
+                  <td>Post Four</td>
+                  <td>Business</td>
+                  <td>July 14, 2017</td>
+                  <td><a href="details.html" class="btn btn-secondary">
+                    <i class="fa fa-angle-double-right"></i> Details
+                  </a></td>
+                </tr>
+                <tr>
+                  <td scope="row">5</td>
+                  <td>Post Five</td>
+                  <td>Web Development</td>
+                  <td>July 15 2017</td>
+                  <td><a href="details.html" class="btn btn-secondary">
+                    <i class="fa fa-angle-double-right"></i> Details
+                  </a></td>
+                </tr>
+                <tr>
+                  <td scope="row">6</td>
+                  <td>Post Six</td>
+                  <td>Health & Wellness</td>
+                  <td>July 16, 2017</td>
+                  <td><a href="details.html" class="btn btn-secondary">
+                    <i class="fa fa-angle-double-right"></i> Details
+                  </a></td>
+                </tr>
+              -->
+			  </tbody>
+            </table>
+          </div>
+        </div>
+
+
+<!-- FIN tableau d'edition
+
+
+
+		 
 		  
 		  
 		  

@@ -101,7 +101,7 @@ $sql="INSERT INTO article (idarticle, titre,introtxt,contenutxt, contenuimage, a
 VALUES (NULL, '$Title', '$introtxt','$contenutxt', '$contenuimage', '$affciher', 0, '$datecreation', '$idcategorie')";
 
 
-echo "---->sql  est --->".$sql;
+//echo "---->sql  est --->".$sql;
 
 $result = mysql_query($sql);
 
