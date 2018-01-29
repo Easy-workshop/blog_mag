@@ -40,14 +40,14 @@ require_once("../Include/DB.php");
             </div>
             <div class="form-group">
               <label for="category">Category</label>
-              <select class="form-control">
+              <select class="form-control" name="titrecategorie">
 
 			  <?php
 				$sqllistecategorie="select * from categorie";
 				$resultlistecategorie = mysql_query($sqllistecategorie);
 				echo "<option value=\"\">Choisir une Catégorie</option>";
 				while($data = mysql_fetch_assoc($resultlistecategorie)) {
-				echo "<option value=".$data["titre"].">".$data["titre"]."</option>";
+				echo "<option  value=".$data["idcategorie"].">".$data["titre"]."</option>";
 				}
 				?>
 
@@ -69,9 +69,18 @@ require_once("../Include/DB.php");
               <input id="file" type="file" name="file" /><br />
 			  -->
 			  
-			  <small class="form-text text-muted">Max Size 3mb</small>
+			  <small class="form-text text-muted">Résolution : 225x136 Extension : svg</small>
             </div>
-            <div class="form-group">
+           
+
+		   <div class="form-group">
+              <label for="Intro-text">Intro-text</label>
+              <input type="text" name="introtxt" class="form-control">
+            </div>
+		   
+		   
+		   
+		   <div class="form-group">
               <label for="body">Body</label>
               <textarea name="editor1" class="form-control"></textarea>
             </div>

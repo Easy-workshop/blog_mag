@@ -182,7 +182,7 @@ require_once("../Include/DB.php");
 					
 						
                         <?php 
-				
+				// My pagination 
 				$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie";
 				$resultartgroup = mysql_query($sqlartgroup);
 				while($data = mysql_fetch_assoc($resultartgroup)) {

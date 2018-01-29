@@ -144,12 +144,12 @@ require_once("../Include/DB.php");
 		
 				<?php 
 				//partie:2 partie haute afficher (4 articles affichage de juste les titres) bon désign
-				$sqlart="select * from article LIMIT 4";
+				$sqlart="select * from article order by idarticle DESC LIMIT 4";
 				$resultart = mysql_query($sqlart);
 				while($data = mysql_fetch_assoc($resultart)) {
                    echo "<div class=\"span3\">";
                    echo " <article class=\"post\">";
-		echo "<a href=\"#\" title=".$data["titre"]."rel=\"bookmark\">
+		echo "<a href=\"#\" title=".htmlentities($data["titre"])."rel=\"bookmark\">
 		<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=".$data["contenuimage"]." />	</a>";
 
 			
@@ -252,13 +252,13 @@ require_once("../Include/DB.php");
 							//partie:4 la carouselle 
 				
 				
-				$sqlart2="select * from article Limit 4";
+				$sqlart2="select * from article order by idarticle DESC LIMIT 4";
 				$resultart2 = mysql_query($sqlart2);
 				while($data = mysql_fetch_assoc($resultart2)) {
-                 echo "<li data-thumb=".$data["contenuimage"]."> <a href=\"Archives_Magazine.php\" title=".$data["titre"]." rel=\"bookmark\">";	
+                 echo "<li data-thumb=".$data["contenuimage"]."> <a href=\"Archives_Magazine.php\" title=".htmlentities($data["titre"])." rel=\"bookmark\">";	
 				 echo "<img width=\"546\" height=\"291\" src=".$data["contenuimage"]." alt=\"photodune-3834701-laughing-girl-xs\" /> </a>";
                  echo" <div class=\"entry\">
-									<h4>".$data["titre"]."</h4>
+									<h4>".htmlentities($data["titre"])."</h4>
 									<p>".substr($data["contenutxt"],0,100)."</p>
 								</div>
 							</li>
@@ -314,11 +314,11 @@ require_once("../Include/DB.php");
 								<?php
 				//partie:5 les dernière news limiter à 4
 				
-				$sqlartpop="select * from article limit 4";
+				$sqlartpop="select * from article order by idarticle DESC LIMIT 4";
 				$resultpop = mysql_query($sqlartpop);
 				while($data = mysql_fetch_assoc($resultpop)) {
 				
-				echo "<li><a href=\"#\" title=".$data["titre"]." rel=\"bookmark\"><h4 class=\"post-title\">".$data["titre"]."</h4></a></li>";
+				echo "<li><a href=\"#\" title=".htmlentities($data["titre"])." rel=\"bookmark\"><h4 class=\"post-title\">".htmlentities($data["titre"])."</h4></a></li>";
 				
 				}
 				
@@ -346,9 +346,9 @@ require_once("../Include/DB.php");
 				$resultStuff = mysql_query($sqlartStuff);
 				while($data = mysql_fetch_assoc($resultStuff)) {
                         
-                 echo " <li><a class=\"image_thumb_zoom\" href=\"#\" title=".$data["titre"]." rel=\"bookmark\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]." alt=\"photodune-2043745-college-student-s\" /></a>";
+                 echo " <li><a class=\"image_thumb_zoom\" href=\"#\" title=".htmlentities($data["titre"])." rel=\"bookmark\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]." alt=\"photodune-2043745-college-student-s\" /></a>";
 				 
-			echo "<h4 class=\"post-title clearfix\"><img class=\"post-icon\" alt=\"Text post\" src=\"images/text.png\"><a href=\"#\" title=".$data["titre"]." rel=\"bookmark\">".$data["contenutxt"]."</a></h4>";
+			echo "<h4 class=\"post-title clearfix\"><img class=\"post-icon\" alt=\"Text post\" src=\"images/text.png\"><a href=\"#\" title=".htmlentities($data["titre"])." rel=\"bookmark\">".$data["contenutxt"]."</a></h4>";
 				  
 		echo 	"<div class=\"meta clearfix\">
 								<span class=\"date\">Julyyy 11, 2013</span>
@@ -457,7 +457,7 @@ require_once("../Include/DB.php");
 								<div class=\"entry clearfix\">
 									<a href=\"#\" title=".$data["contenutxt"]."  rel=\"bookmark\">
 									<img width=\"225\" height=\"136\" src=".$data["contenuimage"]."   class=\"thumb\" alt=\"photodune-3834701-laughing-girl-xs\" />
-									<h4 class=\"post-title\">".$data["titre"]."</h4>
+									<h4 class=\"post-title\">".htmlentities($data["titre"])."</h4>
 									</a>
 									<p>".$data["contenutxt"]."</p>
 									<div class=\"meta\">
@@ -500,12 +500,12 @@ require_once("../Include/DB.php");
 								
 								<?php
 							
-				$sqlartsport="select * from article LIMIT 3";
+				$sqlartsport="select * from article order by idarticle DESC LIMIT 3";
 				$resultsport = mysql_query($sqlartsport);
 				while($data = mysql_fetch_assoc($resultsport)) {
 				
 				 echo "<class=\"post\">
-									<a class=\"image_thumb_zoom\" href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+									<a class=\"image_thumb_zoom\" href=\"#.html\" title=".htmlentities($data["titre"])." rel=\"bookmark\">
 									<img width=\"371\" height=\"177\" src=".$data["contenuimage"]." class=\"attachment-post-first wp-post-image\" alt=\"gallery-1\" />
 									</a>
 									<h4 class=\"post-title\">
@@ -564,7 +564,7 @@ require_once("../Include/DB.php");
 						
 						<?php
 							
-				$sqlartFashion="select * from article LIMIT 3";
+				$sqlartFashion="select * from article order by idarticle DESC LIMIT 3";
 				$resultFashion = mysql_query($sqlartFashion);
 				
 				
@@ -575,7 +575,7 @@ require_once("../Include/DB.php");
 								<img width=\"371\" height=\"177\" src=".$data["contenuimage"]."  alt=\"shutterstock_134257640\" />
 								</a>
 								<h4 class=\"post-title\">
-								<a href=\"#.html\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["titre"]."</a>
+								<a href=\"#.html\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".htmlentities($data["titre"])."</a>
 								<span class=\"date\">August 12, 2013</span>
 								</h4>
 								<p>".$data["contenutxt"]."</p>
@@ -587,7 +587,7 @@ require_once("../Include/DB.php");
 								<div class=\"entry clearfix\">
 									<a href=\"#.html\" title=\"Permalink to Suspen disse auctor dapibus neque pulvinar urna leo\" rel=\"bookmark\">
 									<img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb\" alt=\"shutterstock_70184773\" />
-									<h4 class=\"post-title\">".$data["titre"]."</h4>
+									<h4 class=\"post-title\">".htmlentities($data["titre"])."</h4>
 									</a>
 									<p>".$data["contenutxt"]."</p>
 									<div class=\"meta\">
@@ -650,14 +650,14 @@ require_once("../Include/DB.php");
 					
 					<?php
 					// partie 6 : tableau a trois colonne limiter à 4 		
-				$sqlartPopular="select * from article LIMIT 4";
+				$sqlartPopular="select * from article order by idarticle DESC LIMIT 4";
 				$resultPopular = mysql_query($sqlartPopular);
 				while($data = mysql_fetch_assoc($resultPopular)) {
 					
 					
 					echo " <li>
 						<a href=\"#.html\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb\" alt=\"shutterstock_134257640\" /></a>
-						<h4 class=\"post-title\"><a href=\"#.html\">".$data["titre"]."</a></h4>
+						<h4 class=\"post-title\"><a href=\"#.html\">".htmlentities($data["titre"])."</a></h4>
 						<p>".$data["contenutxt"]."</p>
 						<div class=\"clearfix\"></div>				
 					</li> ";
@@ -744,13 +744,13 @@ require_once("../Include/DB.php");
 					
 					<?php
 							// recent limiter à 4
-				$sqlartRecent="select * from article LIMIT 4";
+				$sqlartRecent="select * from article order by idarticle DESC LIMIT 4";
 				$resultrecent = mysql_query($sqlartRecent);
 				while($data = mysql_fetch_assoc($resultrecent)) {
 				
 				echo "<li>
 						<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=\"shutterstock_134257640\" /></a>
-						<h4 class=\"post-title\"><a href=\"#.html\">".$data["titre"]."</a></h4>
+						<h4 class=\"post-title\"><a href=\"#.html\">".htmlentities($data["titre"])."</a></h4>
 						<p>".$data["contenutxt"]."</p>
 						<div class=\"clearfix\"></div>	
 					</li>";
@@ -781,7 +781,7 @@ require_once("../Include/DB.php");
 					
 					<?php
 						// commentaire limiter à 4	
-				$sqlartComment="select * from article LIMIT 4";
+				$sqlartComment="select * from article order by idarticle DESC LIMIT 4";
 				$resultComment = mysql_query($sqlartComment);
 				while($data = mysql_fetch_assoc($resultComment)) {
 				
@@ -820,7 +820,7 @@ require_once("../Include/DB.php");
 			
 					echo " <div class=\"latest-post clearfix\">
 						<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb fl\" alt=\"shutterstock_134257640\" title=\"\" /></a>
-						<h4><a href=\"#\" rel=\"bookmark\" title=".$data["titre"].">".$data["contenutxt"]."</a></h4>
+						<h4><a href=\"#\" rel=\"bookmark\" title=".htmlentities($data["titre"]).">".$data["contenutxt"]."</a></h4>
 						<div class=\"post-time\">August 12, 2013</div>
 						<div class=\"ratings\" style=\"float: none\">
 							<input class=\"star\" type=\"radio\" name=\"recent-post-1\" value=\"1\" disabled=\"disabled\"/>
@@ -902,9 +902,9 @@ require_once("../Include/DB.php");
 				echo "
 				<article class=\"post\">
 						<div class=\"entry clearfix\">
-							<a href=\"#\" title=".$data["titre"]." rel=\"bookmark\">
+							<a href=\"#\" title=".htmlentities($data["titre"])." rel=\"bookmark\">
 							<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=\"photodune-2043745-college-student-s\" />
-							<h4 class=\"post-title\">".$data["titre"]."</h4>
+							<h4 class=\"post-title\">".htmlentities($data["titre"])."</h4>
 							</a>
 							<p>".$data["contenutxt"]."</p>
 							<div class=\"meta\">
@@ -960,7 +960,7 @@ require_once("../Include/DB.php");
 				while($data = mysql_fetch_assoc($resultVideos)) {
 				
 				echo "<li>
-					<a href=\"#\" title=".$data["titre"]." rel=\"bookmark\">
+					<a href=\"#\" title=".htmlentities($data["titre"])." rel=\"bookmark\">
 					<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." alt=\"shutterstock_134257640\" />
 					</a>
 					</li>";
@@ -1011,10 +1011,10 @@ require_once("../Include/DB.php");
 				while($data = mysql_fetch_assoc($resultGallery)) {
 				
 				echo " <li>
-					<a class=\"image_thumb_zoom\" href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+					<a class=\"image_thumb_zoom\" href=\"#.html\" title=".htmlentities($data["titre"])." rel=\"bookmark\">
 					<img width=\"225\" height=\"136\" src= ".$data["contenuimage"]." alt=\"shutterstock_58382248\" />
 					</a>
-					<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+					<a href=\"#.html\" title=".htmlentities($data["titre"])." rel=\"bookmark\">
 					<h4 class=\"post-title clearfix\"><img class=\"post-icon\" alt=\"Text post\" src=\"images/text.png\"> ".$data["contenutxt"]."</h4></a>
 					<div class=\"meta clearfix\">
 						<span class=\"date\">July 30, 2013</span>
@@ -1140,7 +1140,7 @@ require_once("../Include/DB.php");
 				
 				echo "<div class=\"latest-post clearfix\">
 				<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb fl\" alt=\"shutterstock_134257640\" title=\"\" /></a>
-				<h4><a href=\"#.html\" rel=\"bookmark\" title=".$data["titre"].">".$data["titre"]."</a></h4>
+				<h4><a href=\"#.html\" rel=\"bookmark\" title=".htmlentities($data["titre"]).">".htmlentities($data["titre"])."</a></h4>
 				<div class=\"post-time\">August 12, 2013</div>
 				<div class=\"ratings\" style=\"float: none\">
 				<input class=\"star\" type=\"radio\" name=\"footer-latest-post-1\" value=\"1\" disabled=\"disabled\"/>

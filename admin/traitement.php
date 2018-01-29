@@ -1,12 +1,31 @@
 <?php
 require_once("../Include/DB.php");
 
-//$title="walou";
+
+
+
 //champ
 if($_POST['Title']!="")      
 	$Title=$_POST['Title'];
 else      
 	$Title="";
+
+
+
+//champ : idcategorie
+if($_POST['titrecategorie']!="")      
+	$idcategorie=$_POST['titrecategorie'];
+else      
+	$idcategorie="";
+
+
+
+
+
+if($_POST['introtxt']!="")      
+	$introtxt=$_POST['introtxt'];
+else      
+	$introtxt="";
 
 
 
@@ -18,13 +37,14 @@ $target = "uploads/"; //make sure to create a folder named 'uploads' and put it 
     $file_name = $_FILES['file']['name'];
     $tmp_dir = $_FILES['file']['tmp_name'];
  
-                        if(!preg_match('/(gif|jpe?g|png|csv)$/i', $file_name) //set permissible file types
+                        if(!preg_match('/(gif|jpe?g|png|csv|svg)$/i', $file_name) //set permissible file types
                                           )
                             {
                                 echo "sorry that file type is not allowed";
                             } else {
                         move_uploaded_file($tmp_dir, $target . $file_name);
-                        echo "The file was uploaded successfully<br><br>";
+                        
+					   echo "The file was uploaded successfully<br><br>";
 					  
                     }
 }
@@ -44,8 +64,17 @@ else
 
 $contenuimage="";
 $contenuimage=$target.$file_name;
+/*
+// copier l'image Admin-->blog
 
+$source="../blog_mag/".$target.$file_name;
+ 
+$destination=$file_name;
+ 
+copy($source,$destination);
 
+// fin copie
+*/
 //champ 1:publie et 0: brouillon
 
 if(($_POST['choix'])!=""&& $_POST['choix']=="1")      
@@ -67,15 +96,12 @@ $datecreation=$_POST['datecreation'];
 }else{     
 $datecreation=$datecreationcourante;
 }
-//echo "------>datecreationcourante= ".$datecreation."<br/>";
+
+$sql="INSERT INTO article (idarticle, titre,introtxt,contenutxt, contenuimage, afficher, nbrlecture, datecreation, idcategorie) 
+VALUES (NULL, '$Title', '$introtxt','$contenutxt', '$contenuimage', '$affciher', 0, '$datecreation', '$idcategorie')";
 
 
-
-$sql="INSERT INTO article (idarticle, titre, contenutxt, contenuimage, afficher, nbrlecture, datecreation, idcategorie) 
-VALUES (NULL, '$Title', '$contenutxt', '$contenuimage', '$affciher', 0, '$datecreation', 1)";
-
-
-//echo "---->sql  est --->".$sql;
+echo "---->sql  est --->".$sql;
 
 $result = mysql_query($sql);
 
