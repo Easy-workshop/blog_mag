@@ -85,6 +85,8 @@ require_once("../Include/DB.php");
               <textarea name="editor1" class="form-control"></textarea>
             </div>
    
+  
+   
    
    
    
@@ -166,7 +168,7 @@ require_once("../Include/DB.php");
 				
 				<?php
 							
-				$sqlrecuppostcat="select ar.idarticle as idarticle,ar.titre as titrearticle,cat.titre as titrecategorie,ar.datecreation from article ar,categorie cat where ar.idcategorie=cat.idcategorie";
+				$sqlrecuppostcat="select ar.idarticle as idarticle,ar.titre as titrearticle,cat.titre as titrecategorie,ar.datecreation from article ar,categorie cat where ar.idcategorie=cat.idcategorie ORDER BY ar.datecreation DESC ";
 				$resultrecuppostcat = mysql_query($sqlrecuppostcat);
 				while($data = mysql_fetch_assoc($resultrecuppostcat)) {
 				
@@ -238,7 +240,7 @@ require_once("../Include/DB.php");
         </div>
 
 
-<!-- FIN tableau d'edition
+<!-- FIN tableau d'edition-->
 
 
 

@@ -2,7 +2,7 @@
 require_once("../Include/DB.php");
 ?>
 <!DOCTYPE html>
-<!-- saved from url=(0064)http://demo.minimalthemes.net/magazine-static/fashion-news.html# -->
+
 <html lang="fr"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Archives | Magazine</title>
 
@@ -78,7 +78,23 @@ require_once("../Include/DB.php");
 				</span>
 				</li>
 					<?php 
-					echo "mon param-->".$_GET['nomcategorie'];
+					/*
+					$varidcotegorie="";
+					echo "mon param-->".$_GET['idcategorie'];
+					$varidcotegorie=$_GET['idcategorie'];
+					*/
+					if($_GET['idcategorie']!="")      
+	                   $varidcotegorie=$_GET['idcategorie'];
+                         else      
+	                     $varidcotegorie="";
+					
+					
+					if($_GET['idarticle']!="")      
+	                   $varidarticle=$_GET['idarticle'];
+                         else      
+	                     $varidarticle="";
+					
+					echo "+++++++++++++  ".$varidarticle;
 					
 					?>			
 				<li><a href="index.php"><img src="images/home.png" alt="Magazine"></a></li>
@@ -93,13 +109,14 @@ require_once("../Include/DB.php");
 				</li>
 				-->
                 
-                
+                 
                <?php 
+				// partie:1 menu 
 				$sqlcat="select * from categorie";
 				$resultcat = mysql_query($sqlcat);
 				while($data = mysql_fetch_assoc($resultcat)) {
 				//echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
-				echo  "<li><a href=\"Archives_Magazine.php?nomcategorie=".$data["titre"]."\">".$data["titre"]."</a></li>";
+				echo  "<li><a href=\"Archives_Magazine.php?idcategorie=".$data["idcategorie"]."\">".$data["titre"]."</a></li>";
 				}
 				 
 				    ?>
@@ -114,7 +131,9 @@ require_once("../Include/DB.php");
 		
         
  <?php 
-				$sqlart="select * from article LIMIT 4";
+				// partie 2 : les 4 images deu haut
+				
+				$sqlart="select * from article where idcategorie='".$varidcotegorie."'";
 				$resultart = mysql_query($sqlart);
 				while($data = mysql_fetch_assoc($resultart)) {
                    echo "<div class=\"span3\">";
@@ -125,7 +144,7 @@ require_once("../Include/DB.php");
 			
 				
 		echo "<div class=\"entry\">
-					<h3><a href=\"#\" title=".$data["contenutxt"]. "rel=\"bookmark\">".$data["titre"]."</a></h3>
+					<h3><a href=\"#\" title=".$data["introtxt"]. "rel=\"bookmark\">".$data["titre"]."</a></h3>
 					<p>5 months ago </p>
 				</div>";
 				
@@ -174,16 +193,25 @@ require_once("../Include/DB.php");
 
 		<div id="main" class="row-fluid">
 			<div id="main-left" class="span8">
+			<!--
 			<div class="entry-header">
 				<h3>Category: <span>Fashion News</span></h3>
 			</div><!-- .archive-header -->
+				
+				<!--cette partie concernent les article ou bien un article-->
 				
 				<article class="post">
 					
 						
                         <?php 
-				// My pagination 
-				$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie";
+				
+				 
+				
+				
+				if ($varidcotegorie!="") // si on souhaite voir la liste des article par catégorie
+				{
+				//$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie";
+				$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie and ar.idcategorie='".$varidcotegorie."' ";
 				$resultartgroup = mysql_query($sqlartgroup);
 				while($data = mysql_fetch_assoc($resultartgroup)) {
 				
@@ -201,6 +229,7 @@ require_once("../Include/DB.php");
 						</ul>
 					</div>";	
 				
+			
 				
 				echo  " <div class=\"entry-content\">
 						<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
@@ -214,7 +243,56 @@ require_once("../Include/DB.php");
 				
 				
 				
-				}
+				}// fin while
+				
+				}// fin if
+				
+				elseif($varidarticle!=""){ // si on souhaite voir un seul article (exemple clique sur le lien )
+				
+				
+				
+				$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie and ar.idarticle='".$varidarticle."' ";
+				$resultartgroup = mysql_query($sqlartgroup);
+				while($data = mysql_fetch_assoc($resultartgroup)) {
+				
+				echo " <h2 class=\"entry-title\"><span class=\"the_title\"><a href=\"#.html#\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["titre"]."</a></span>";
+				
+				echo " <span class=\"entry-cat\"><a href=\"#.html#\" title=\"View all posts in Fashion News\" rel=\"category tag\">".$data["titre"]."</a></span></h2>";
+					
+				echo " <div class=\"entry-meta row-fluid\">
+						<ul class=\"clearfix\">
+							<li><img alt=\"\" src=\"Archives_Magazine_files/avatar.png\" height=\"15\" width=\"15\"><a href=\"#.html#\" title=\"Posts by Admin\" rel=\"author\">Admin</a></li>
+							<li><img src=\"Archives_Magazine_files/time.png\" alt=\"\">August 12, 2013</li>
+							<li><img src=\"Archives_Magazine_files/view-bg.png\" alt=\"\">5726 </li>
+							<li><img src=\"Archives_Magazine_files/komen.png\" alt=\"\"><a href=\"#.html#\" title=".$data["titre"].">0 Comment</a></li>
+							<li class=\"tagz\"><img src=\"Archives_Magazine_files/tags-icon.png\" alt=\"\"><a href=\"#.html\" rel=\"tag\">Grid</a><br></li>
+						</ul>
+					</div>";	
+				
+			
+				
+				echo  " <div class=\"entry-content\">
+						<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
+						<p><img width=\"774\" height=\"320\" src=".$data["contenuimage"]." alt=\"shutterstock_134257640\"></p>
+						</a>
+						<p>".$data["contenutxt"]."
+						</p><p class=\"moretag\"><a href=\"#.html\"> Read more</a></p>
+					</div>
+				</article>";
+				
+				
+				
+				
+				}// fin while
+				
+				
+				
+				
+				
+				
+				
+				
+				}// elseif
 
 					?>
                         
@@ -344,7 +422,7 @@ require_once("../Include/DB.php");
 					echo " <li>
 						<a href=\"#.html\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb\" alt=\"shutterstock_134257640\" /></a>
 						<h4 class=\"post-title\"><a href=\"#.html\">".$data["titre"]."</a></h4>
-						<p>".$data["contenutxt"]."</p>
+						<p>".$data["introtxt"]."</p>
 						<div class=\"clearfix\"></div>				
 					</li> ";
 				}
@@ -386,7 +464,7 @@ require_once("../Include/DB.php");
 				echo "<li>
 						<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=\"shutterstock_134257640\" /></a>
 						<h4 class=\"post-title\"><a href=\"#.html\">".$data["titre"]."</a></h4>
-						<p>".$data["contenutxt"]."</p>
+						<p>".$data["introtxt"]."</p>
 						<div class=\"clearfix\"></div>	
 					</li>";
 				}
@@ -431,7 +509,7 @@ require_once("../Include/DB.php");
 				
 					echo " <div class=\"latest-post clearfix\">
 						<a href=\"#\"><img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb fl\" alt=\"shutterstock_134257640\" title=\"\" /></a>
-						<h4><a href=\"#\" rel=\"bookmark\" title=".$data["titre"].">".$data["contenutxt"]."</a></h4>
+						<h4><a href=\"#\" rel=\"bookmark\" title=".$data["titre"].">".$data["introtxt"]."</a></h4>
 						<div class=\"post-time\">August 12, 2013</div>
 						<div class=\"ratings\" style=\"float: none\">
 							<input class=\"star\" type=\"radio\" name=\"recent-post-1\" value=\"1\" disabled=\"disabled\"/>
@@ -479,7 +557,7 @@ require_once("../Include/DB.php");
 							<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=\"photodune-2043745-college-student-s\" />
 							<h4 class=\"post-title\">".$data["titre"]."</h4>
 							</a>
-							<p>".$data["contenutxt"]."</p>
+							<p>".$data["introtxt"]."</p>
 							<div class=\"meta\">
 								<span class=\"date\">July 11, 2013</span>
 							</div>
@@ -545,7 +623,7 @@ require_once("../Include/DB.php");
 				
 <?php
 							
-				$sqllastnews="select * from article";
+				$sqllastnews="select * from article LIMIT 4";
 				$resultlastnews = mysql_query($sqllastnews);
 				while($data = mysql_fetch_assoc($resultlastnews)) {
 				

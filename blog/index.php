@@ -117,7 +117,7 @@ require_once("../Include/DB.php");
 				$resultcat = mysql_query($sqlcat);
 				while($data = mysql_fetch_assoc($resultcat)) {
 				//echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
-				echo  "<li><a href=\"Archives_Magazine.php?nomcategorie=".$data["titre"]."\">".$data["titre"]."</a></li>";
+				echo  "<li><a href=\"Archives_Magazine.php?idcategorie=".$data["idcategorie"]."\">".$data["titre"]."</a></li>";
 				
 								}
 				 
@@ -149,11 +149,15 @@ require_once("../Include/DB.php");
 				while($data = mysql_fetch_assoc($resultart)) {
                    echo "<div class=\"span3\">";
                    echo " <article class=\"post\">";
+		/*
 		echo "<a href=\"#\" title=".htmlentities($data["titre"])."rel=\"bookmark\">
 		<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=".$data["contenuimage"]." />	</a>";
-
+*/
 			
-				
+	echo "<a href=\"Archives_Magazine.php?idarticle=".$data["idarticle"]."\" title=".htmlentities($data["titre"])."rel=\"bookmark\">
+		<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=".$data["contenuimage"]." /> </a>";
+	
+	
 		echo "<div class=\"entry\">
 					<h3><a href=\"#\" title=".$data["titre"]. " rel=\"bookmark\">".$data["titre"]."</a></h3>
 					<p>5 months ago </p>

@@ -97,8 +97,17 @@ $datecreation=$_POST['datecreation'];
 $datecreation=$datecreationcourante;
 }
 
+
+// formater les données avant l'insertion
+
+$temp_Title=str_replace("'"," ",$Title);
+$temp_introtxt=str_replace("'"," ",$introtxt);
+$temp_contenutxt=str_replace("'"," ",$contenutxt);
+
+// fin de formatage
+
 $sql="INSERT INTO article (idarticle, titre,introtxt,contenutxt, contenuimage, afficher, nbrlecture, datecreation, idcategorie) 
-VALUES (NULL, '$Title', '$introtxt','$contenutxt', '$contenuimage', '$affciher', 0, '$datecreation', '$idcategorie')";
+VALUES (NULL, '$temp_Title', '$temp_introtxt','$temp_contenutxt', '$contenuimage', '$affciher', 0, '$datecreation', '$idcategorie')";
 
 
 //echo "---->sql  est --->".$sql;
