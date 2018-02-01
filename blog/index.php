@@ -498,42 +498,47 @@ require_once("../Include/DB.php");
 							<div class="row-fluid">
 								
 								
-								<?php
+								
+				
+				<class="post">
+									<a class="image_thumb_zoom" href="#.html" title="titrexxxxx" rel="bookmark">
+									<img width="371" height="177" src="images/shutterstock_58382248-371x177.jpg" class="attachment-post-first wp-post-image" alt="gallery-1" />
+									</a>
+									<h4 class="post-title">
+									<a href="#" title="contenuimage" rel="bookmark">"introxxxxxxtxt"</a>
+									<span class="date">July 2, 2013</span>
+									</h4>
+									<p>"introtxxxxx"</p>
+								</article>"
+				
+						
+								
+
+<?php
 							
 				$sqlartsport="select * from article order by idarticle DESC LIMIT 4";
 				$resultsport = mysql_query($sqlartsport);
 				while($data = mysql_fetch_assoc($resultsport)) {
-				
-				 echo "<class=\"post\">
-									<a class=\"image_thumb_zoom\" href=\"#.html\" title=".htmlentities($data["titre"])." rel=\"bookmark\">
-									<img width=\"371\" height=\"177\" src=".$data["contenuimage"]." class=\"attachment-post-first wp-post-image\" alt=\"gallery-1\" />
-									</a>
-									<h4 class=\"post-title\">
-									<a href=\"#\" title=".$data["contenuimage"]." rel=\"bookmark\">".$data["introtxt"]."</a>
-									<span class=\"date\">July 2, 2013</span>
-									</h4>
-									<p>".$data["introtxt"]."</p>
-								</article>";
-				
-				}
 								
-					?>			
 								
-
-
-						<!--		<article class="post">
-									<div class="entry clearfix">
-										<a href="#" title="Permalink to Nam nibh arcu tristique eget pretium vitae libero ac risus" rel="bookmark">
-										<img width="225" height="136" src="images/photodune-3517559-idea-s-225x136.jpg" class="thumb wp-post-image" alt="photodune-3517559-idea-s" />
-										<h4 class="post-title">Nam nibh arcu tristique eget pretiu...</h4>
+								echo"<article class=\"post\">
+									<div class=\"entry clearfix\">
+										<a href=\"#\" title=\"Permalink to Nam nibh arcu tristique eget pretium vitae libero ac risus\" rel=\"bookmark\">
+										<img width=\"225\" height=\"136\" src=" .$data["contenuimage"]." class=\"thumb wp-post-image\" alt=\"photodune-3517559-idea-s\" />
+										<h4 class=\"post-title\"> ".$data["titre"]."</h4>
 										</a>
-										<p>Nam nibh arcu, tristique eget pretium se...</p>
-										<div class="meta">
-											<span class="date">July 2, 2013</span>
+										<p> ".$data["titre"]."</p>
+										<div class=\"meta\">
+											<span class=\"date\">July 2, 2013</span>
 										</div>
 									</div>
-								</article>
+								</article>";
+								
 
+								}
+								
+					?>	
+								<!--
 								<article class="post">
 									<div class="entry clearfix">
 										<a href="#" title="Permalink to Vestibulum auctor dapibus neque pulvinar urna leo" rel="bookmark">
@@ -554,40 +559,41 @@ require_once("../Include/DB.php");
 
 				</div>
 
+
+				
+				
 				<div id="home-bottom" class="clearfix">
-					
-					
-					
-					<h3 class="title"><a href="#" title="Fashion News"><span>Fashion News à résoudre le souci des img</span></a></h3>	
+					<h3 class="title"><a href="#" title="Fashion News"><span>Fashion News</span></a></h3>	
 					<div class="row-fluid">	
 						<div class="span6">
-						
-						<?php
+							<article class="post">
+								<a class="image_thumb_zoom" href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark">
+								<img width="371" height="177" src="images/shutterstock_134257640-225x136.jpg" alt="shutterstock_134257640" />
+								</a>
+								<h4 class="post-title">
+								<a href="#" title="Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem" rel="bookmark">xsxsxsxsxsxsxsxsxsxsurna leo...</a>
+								<span class="date">August 12, 2013</span>
+								</h4>
+								<p>Nam nibh arcu, tristique eget pretium sed, porta id quam. Praesent dignissim ante ac tincidunt molestie. Nunc quis ...</p>
+							</article>
+						</div>
+
+
+						<div class="span6">
+<?php
 							
-				$sqlartFashion="select * from article order by idarticle DESC LIMIT 3";
+				$sqlartFashion="select * from article order by idarticle DESC LIMIT 4";
 				$resultFashion = mysql_query($sqlartFashion);
 				
 				
 				while($data = mysql_fetch_assoc($resultFashion)) {
-						
-						echo "		<article class=\"post\">
-								<a class=\"image_thumb_zoom\" href=\"#.html\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">
-								<img width=\"371\" height=\"177\" src=".$data["contenuimage"]."  alt=\"shutterstock_134257640\" />
-								</a>
-								<h4 class=\"post-title\">
-								<a href=\"#.html\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".htmlentities($data["titre"])."</a>
-								<span class=\"date\">August 12, 2013</span>
-								</h4>
-								<p>".$data["introtxt"]."</p>
-							</article>
-						</div>
 
-						<div class=\"span6\">
-							<article class=\"post\">
+
+						echo"<article class=\"post\">
 								<div class=\"entry clearfix\">
-									<a href=\"#.html\" title=\"Permalink to Suspen disse auctor dapibus neque pulvinar urna leo\" rel=\"bookmark\">
-									<img width=\"225\" height=\"136\" src=".$data["contenuimage"]."  class=\"thumb\" alt=\"shutterstock_70184773\" />
-									<h4 class=\"post-title\">".htmlentities($data["titre"])."</h4>
+									<a href=\"#\" title= ".$data["titre"].">
+									<img width=\"225\" height=\"136\" src=".$data["contenuimage"]." class=\"thumb\" alt=\"shutterstock_70184773\" />
+									<h4 class=\"post-title\">".$data["titre"]."</h4>
 									</a>
 									<p>".$data["introtxt"]."</p>
 									<div class=\"meta\">
@@ -595,12 +601,12 @@ require_once("../Include/DB.php");
 									</div>
 								</div>
 							</article>";
-						
-				}		
+							
+						}		
 				?>		
-						
-<!--						
-						<article class="post">
+				
+				<!--
+							<article class="post">
 								<div class="entry clearfix">
 									<a href="#" title="Permalink to Aenean dignissim dignissim lorem pellentesque felis risus" rel="bookmark">
 									<img width="225" height="136" src="images/shutterstock_58382248-225x136.jpg" class="thumb" alt="shutterstock_58382248" />
@@ -631,6 +637,10 @@ require_once("../Include/DB.php");
 				</div>
 
 			</div><!-- #main-left -->
+				
+				
+				
+				
 
 		<div id="sidebar" class="span4">
 
