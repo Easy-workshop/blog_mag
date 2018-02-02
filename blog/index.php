@@ -113,7 +113,7 @@ require_once("../Include/DB.php");
 				-->
                 <?php 
 				// partie:1 menu 
-				$sqlcat="select * from categorie";
+				$sqlcat="select * from categorie where idcategorie<>'5'";
 				$resultcat = mysql_query($sqlcat);
 				while($data = mysql_fetch_assoc($resultcat)) {
 				//echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
@@ -144,7 +144,8 @@ require_once("../Include/DB.php");
 		
 				<?php 
 				//partie:2 partie haute afficher (4 articles affichage de juste les titres) bon désign
-				$sqlart="select * from article order by idarticle DESC LIMIT 4";
+				//+ afficher juste les article de de la catégorie : divers=id 5
+				$sqlart="select * from article where idcategorie='5' order by idarticle DESC LIMIT 4";
 				$resultart = mysql_query($sqlart);
 				while($data = mysql_fetch_assoc($resultart)) {
                    echo "<div class=\"span3\">";

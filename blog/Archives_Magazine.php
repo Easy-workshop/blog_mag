@@ -4,7 +4,7 @@ require_once("../Include/DB.php");
 <!DOCTYPE html>
 
 <html lang="fr"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Archives | Magazine</title>
+<title>Detail_article</title>
 
 <link rel="shortcut icon" href="http://demo.minimalthemes.net/magazine-static/images/favicon.png" title="Favicon">
 <meta name="viewport" content="width=device-width">
@@ -735,7 +735,7 @@ require_once("../Include/DB.php");
 			</div>
 
 			<div id="credit" class="fl">
-				<p>All Right Reserved by minimalthemes</p>
+				<p>All Right Reserved by Mag.ma</p>
 			</div>
 
 		</div><!-- .site-info -->

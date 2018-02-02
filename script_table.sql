@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 01 Février 2018 à 18:30
+-- Généré le :  Ven 02 Février 2018 à 17:25
 -- Version du serveur :  10.1.9-MariaDB
 -- Version de PHP :  5.5.30
 
@@ -54,7 +54,11 @@ INSERT INTO `article` (`idarticle`, `titre`, `introtxt`, `contenutxt`, `contenui
 (64, 'Effacer toutes vos donnÃ©es de votre laptop', 'vendre votre ordinateur portable sans qu on restaure vos donnÃ©es', 'Le soft : my disk wiper permet supprimer radicalement vos donnÃ©es . Ã§a peut servir si par exemple vous souhaiteriez vendre votre ordinateur portable en effet , si la personne Ã  qui vous avez vendu votre ordinateur utilise des logiciels de restauration , il pourra facilement rÃ©cupÃ©rer vos document de travail ou photo de vacance Donc my disk wiper va vous permettre d effacer radicalement vos prÃ©cieuses donnÃ©es', 'images/informatique-restauration.svg', 1, 0, '2018-02-01 15:54:00', 2),
 (65, 'Surfez anonyme pour Ã©viter qu on vous piste', 'votre FAI et les sites que vous visiter vous piste Ã  tort et Ã  travers', 'aujourd hui quand vous surfez sur internet vous Ãªtes tout le temps confrontÃ© Ã  des parasites de tout genre.\r\nquand vous visitez des sites par exemple il se peut qu il vous installe des petits fichiers txt dans votre ordinateur sans que vous leur donner l autorisation de le faire et ensuite il comment Ã  vous espionner Ã  tort et Ã  travers ...\r\nHeureusement il existe plusieurs solutions pour au moins vous puissiez vous cacher un petit peu et conserver votre intimitÃ© virtuelle \r\ndonc on vous propose d installer le soft : sÃ©curitykiss, ce dernier vous permettra de changer votre adresse ip et pays comme Ã§a mÃªme votre fournisseur d accÃ©s Ã  internet et saura pas vous pister\r\nensuite pour vÃ©rifier que votre ip et votre adresse ip sont fausses connectez-vous sur : \r\nhttps://ipleak.net/ ou bien https://www.dnsleaktest.com/ \r\nVoila', 'images/info-anonyme.svg', 0, 0, '2018-02-01 16:28:00', 2),
 (71, 'Les moteurs de recherches europÃ©en VS google', 'google: l amÃ©rique veut tout savoir de vous comment y remÃ©dier', '<p>quand vous faites des recherche sur google vous devez savoir que toutes votre activit&eacute;e est historiser chez eux dans des serveurs tiers et que toutes vos informations personnelles sont vendus...</p>\r\n\r\n<p>bon pour essayer au moins de rem&eacute;dier &agrave; cela utiliser le moteur de recherche europ&eacute;en :&nbsp;<strong>Qwant ou bien duckduckgo&nbsp;</strong></p>\r\n\r\n<p>ces moteur de recherche sont moins curieux en terme de vie priv&eacute; que google m&ecirc;me si on ne peut pas &ecirc;tre &agrave; 100% garant que ces derniers aussi ne vous pistes pas mais au moins vous serez un tout petit peu prot&eacute;g&eacute;&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n', 'images/info_qwant.svg', 0, 0, '2018-02-01 17:21:00', 2),
-(72, 'Restaurer vos donnÃ©es supprimÃ©es par erreur', 'vous avez effacer des rÃ©pertoire par erreur! ne vous inquiÃ©tez pas un seul logiciel permet de les ', '<p>Il arrive que parfois on supprime des fichiers (m&ecirc;me de la corbeille) donc pour rem&eacute;dier &agrave; cela installer les logiciels :</p>\r\n\r\n<ol>\r\n	<li>MiniTool</li>\r\n</ol>\r\n\r\n<p>ou bien&nbsp;</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp;2. ShadowMaker Free</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>voil&agrave; good luck</p>\r\n', 'images/info_restau.svg', 0, 0, '2018-02-01 17:39:00', 2);
+(72, 'Restaurer vos donnÃ©es supprimÃ©es par erreur', 'vous avez effacer des rÃ©pertoire par erreur! ne vous inquiÃ©tez pas un seul logiciel permet de les ', '<p>Il arrive que parfois on supprime des fichiers (m&ecirc;me de la corbeille) donc pour rem&eacute;dier &agrave; cela installer les logiciels :</p>\r\n\r\n<ol>\r\n	<li>MiniTool</li>\r\n</ol>\r\n\r\n<p>ou bien&nbsp;</p>\r\n\r\n<p>&nbsp; &nbsp; &nbsp; &nbsp;2. ShadowMaker Free</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>voil&agrave; good luck</p>\r\n', 'images/info_restau.svg', 0, 0, '2018-02-01 17:39:00', 2),
+(73, 'Manger,DÃ©guster et faite vous plaisir', 'pizza,chandwitch,sushi,frite glace qu est ce qui vous fait le plus plaisir', '', 'images/divers_food.svg', 0, 0, '2018-02-02 11:28:00', 5),
+(74, 'spectacle et cinÃ©ma les meilleurs film et comÃ©die', 'spectacle, cinÃ©ma les meilleurs programmations ', '', 'images/divers_cinema.svg', 0, 0, '2018-02-02 12:17:00', 5),
+(75, 'Explorer le Maroc et ses bons plans et coins sympa', 'Voyage Marrackech,Tanger,Essaouira , cafÃ©,restaurant et bon plan ', '', 'images/divers_voyage.svg', 0, 0, '2018-02-02 12:26:00', 5),
+(76, 'Les vÃªtements de la saison et bien d autre surprise', 'chemise,pontalon,robe chaussure classique ou sportive et bien d autre choses', '', 'images/divers_mode.svg', 0, 0, '2018-02-02 12:39:00', 5);
 
 -- --------------------------------------------------------
 
@@ -78,7 +82,8 @@ INSERT INTO `categorie` (`idcategorie`, `titre`, `afficher`, `iconecategorie`) V
 (1, 'Emploi', 1, ''),
 (2, 'informatique', 1, ''),
 (3, 'retro-gaming', 1, ''),
-(4, 'insolite.ma', 1, '');
+(4, 'insolite.ma', 1, ''),
+(5, 'Divers', 0, NULL);
 
 --
 -- Index pour les tables exportées
@@ -104,12 +109,12 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `article`
 --
 ALTER TABLE `article`
-  MODIFY `idarticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `idarticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 --
 -- AUTO_INCREMENT pour la table `categorie`
 --
 ALTER TABLE `categorie`
-  MODIFY `idcategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idcategorie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
