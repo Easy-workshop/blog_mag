@@ -226,7 +226,7 @@ require_once("../Include/DB.php");
 	<div id="intr" class="container">
 		<div class="row-fluid">
 			<div class="brnews span9">
-				<h3>News en vrac</h3>
+				<h3>fêtes MA  et FR</h3>
 				<ul id="scroller">
 					<!--partie:3 text défilant mettre les fêtes marocaines et francaise-->
 					
@@ -436,7 +436,7 @@ require_once("../Include/DB.php");
 				
 				<div id="home-middle" class="clearfix">
 					<div class="left span6">
-						<h3 class="title"><a href="#" title="Game News"><span>Game News</span></a></h3>
+						<h3 class="title"><a href="#" title="Emploi News"><span>Emploi News</span></a></h3>
 						<div class="row-fluid">	
 							
 							<article class="post">
@@ -453,7 +453,7 @@ require_once("../Include/DB.php");
 
 <?php
 							
-				$sqlartGame="select * from article LIMIT 4";
+				$sqlartGame="select * from article WHERE idcategorie='1' LIMIT 4";
 				$resultGame = mysql_query($sqlartGame);
 				while($data = mysql_fetch_assoc($resultGame)) {
 				
@@ -499,7 +499,7 @@ require_once("../Include/DB.php");
 
 					<div class="right span6">
 						
-						<h3 class="title"><a href="#" title="Sport News"><span>Sport News</span></a></h3>
+						<h3 class="title"><a href="#" title="Informatique News"><span>Informatique News</span></a></h3>
 							<div class="row-fluid">
 								
 								
@@ -521,7 +521,7 @@ require_once("../Include/DB.php");
 
 <?php
 							
-				$sqlartsport="select * from article order by idarticle DESC LIMIT 4";
+				$sqlartsport="select * from article WHERE idcategorie='2' LIMIT 4";
 				$resultsport = mysql_query($sqlartsport);
 				while($data = mysql_fetch_assoc($resultsport)) {
 								
@@ -568,7 +568,7 @@ require_once("../Include/DB.php");
 				
 				
 				<div id="home-bottom" class="clearfix">
-					<h3 class="title"><a href="#" title="Fashion News"><span>Fashion News</span></a></h3>	
+					<h3 class="title"><a href="#" title="Fashion News"><span>Retro-gaming News</span></a></h3>	
 					<div class="row-fluid">	
 						<div class="span6">
 							<article class="post">
@@ -587,7 +587,7 @@ require_once("../Include/DB.php");
 						<div class="span6">
 <?php
 							
-				$sqlartFashion="select * from article order by idarticle DESC LIMIT 4";
+				$sqlartFashion="select * from article  WHERE idcategorie='4' order by idarticle DESC LIMIT 4";
 				$resultFashion = mysql_query($sqlartFashion);
 				
 				
@@ -820,7 +820,7 @@ require_once("../Include/DB.php");
 			</div><!-- /#tab-widget --> 
 
 			<div class="widget widget_latestpost">
-				<h3 class="title"><span>Recent Posts</span></h3>
+				<h3 class="title"><span>Derniers Post</span></h3>
 				<div class="latest-posts widget">
 					
 					
@@ -895,7 +895,7 @@ require_once("../Include/DB.php");
 				</div>
 			</div>
 
-			<div class="widget widget_latestpost"><h3 class="title"><span>Technology News</span></h3>
+			<div class="widget widget_latestpost"><h3 class="title"><span>Insolites News</span></h3>
 				<div class="latest-posts">
 					<article class="post">
 						<a class="image_thumb_zoom" href="#" title="Permalink to Porta lorem ipsum dolor sit amet, consectetur adipiscing risus" rel="bookmark">
@@ -1016,7 +1016,7 @@ require_once("../Include/DB.php");
 		<div class="clearfix"></div>
 
 		<div id="gallery">
-			<h3 class="title"><span>All News Gallery</span></h3>
+			<h3 class="title"><span>Gallerie des News</span></h3>
 				<ul class="gallery">
 
 				<?php
@@ -1144,7 +1144,7 @@ require_once("../Include/DB.php");
 		<div id="footer-widgets" class="container">
 			<div class="footer-widget span3 block1">
 				<div class="widget widget_latestpost">
-					<h3 class="title"><span>Latest News</span></h3>
+					<h3 class="title"><span>Les dernières News</span></h3>
 					<div class="latest-posts widget">
 						
 						<?php
@@ -1287,10 +1287,25 @@ require_once("../Include/DB.php");
 		
 			<div id="footer-nav" class="fr">
 				<ul class="menu">
-					<li><a href="index.html">Home</a></li>
+	
+    <?php 
+				// partie:1 menu 
+				$sqlcat="select * from categorie where idcategorie<>'5'";
+				$resultcat = mysql_query($sqlcat);
+				while($data = mysql_fetch_assoc($resultcat)) {
+				//echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
+				echo  "<li><a href=\"Archives_Magazine.php?idcategorie=".$data["idcategorie"]."\">".$data["titre"]."</a></li>";
+				
+								}
+				 
+				    ?>
+    
+    				<!--
+                    <li><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
 					<li><a href="blog.html">Blog</a></li>
 					<li><a href="contact.html">Contact</a></li>
+-->
 				</ul>
 			</div>
 

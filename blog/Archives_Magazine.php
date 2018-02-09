@@ -83,18 +83,20 @@ require_once("../Include/DB.php");
 					echo "mon param-->".$_GET['idcategorie'];
 					$varidcotegorie=$_GET['idcategorie'];
 					*/
-					if($_GET['idcategorie']!="")      
-	                   $varidcotegorie=$_GET['idcategorie'];
+					//if($_GET['idcategorie']!="")      
+	                  if (isset($_GET['idcategorie']))
+					   $varidcotegorie=$_GET['idcategorie'];
                          else      
 	                     $varidcotegorie="";
 					
 					
-					if($_GET['idarticle']!="")      
+					//if($_GET['idarticle']!="")      
+					if (isset($_GET['idarticle']))
 	                   $varidarticle=$_GET['idarticle'];
                          else      
 	                     $varidarticle="";
 					
-					echo "+++++++++++++  ".$varidarticle;
+					
 					
 					?>			
 				<li><a href="index.php"><img src="images/home.png" alt="Magazine"></a></li>
@@ -727,10 +729,17 @@ require_once("../Include/DB.php");
 		
 			<div id="footer-nav" class="fr">
 				<ul class="menu">
-					<li><a href="http://demo.minimalthemes.net/magazine-static/index.html">Home</a></li>
-					<li><a href="http://demo.minimalthemes.net/magazine-static/about.html">About</a></li>
-					<li><a href="http://demo.minimalthemes.net/magazine-static/blog.html">Blog</a></li>
-					<li><a href="http://demo.minimalthemes.net/magazine-static/contact.html">Contact</a></li>
+					<?php 
+				// partie:1 menu 
+				$sqlcat="select * from categorie where idcategorie<>'5'";
+				$resultcat = mysql_query($sqlcat);
+				while($data = mysql_fetch_assoc($resultcat)) {
+				//echo  "<li><a href=\"Archives_Magazine.php\">".$data["titre"]."</a></li>";
+				echo  "<li><a href=\"Archives_Magazine.php?idcategorie=".$data["idcategorie"]."\">".$data["titre"]."</a></li>";
+				
+								}
+				 
+				    ?>
 				</ul>
 			</div>
 
