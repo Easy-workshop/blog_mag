@@ -34,6 +34,12 @@ require_once("../Include/DB.php");
 		<form enctype="multipart/form-data" action="traitement.php" method="post">
 		 <!--<form method="POST" action="traitement.php">-->
 			
+			
+			<div class="form-group">
+              <label for="posteur">Posteur</label>
+              <input type="text" name="posteur" class="form-control">
+            </div>
+			
 			<div class="form-group">
               <label for="title">Title</label>
               <input type="text" name="Title" class="form-control">

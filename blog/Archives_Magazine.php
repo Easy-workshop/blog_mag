@@ -96,8 +96,17 @@ require_once("../Include/DB.php");
                          else      
 	                     $varidarticle="";
 					
+					      
+					//if($_GET['searchsubmit']!="")      
+			/*	
+			$searchsubmit="";	
+				if($_POST['searchsubmit']!="")      
+	            $searchsubmit=$_POST['searchsubmit'];
+else      
+	$searchsubmit="rien";
 					
-					
+					echo "---------->".$searchsubmit;
+				*/	
 					?>			
 				<li><a href="index.php"><img src="images/home.png" alt="Magazine"></a></li>
 				<!--
@@ -213,31 +222,46 @@ require_once("../Include/DB.php");
 				if ($varidcotegorie!="") // si on souhaite voir la liste des article par catégorie
 				{
 				//$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie";
-				$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie and ar.idcategorie='".$varidcotegorie."' ";
+				$sqlartgroup="
+				select 
+				ar.idarticle,
+ar.posteur as article_posteur,
+				ar.titre as article_titre,
+ar.introtxt as article_introtxt,
+ar.contenutxt as article_contenutxt,
+ar.contenuimage as article_contenuimage,
+ar.afficher,
+ar.nbrlecture,
+ar.datecreation as article_datecreation,
+cat.idcategorie,
+cat.titre as categorie_titre,
+cat.afficher,
+cat.iconecategorie     
+from article ar,categorie cat where cat.idcategorie=ar.idcategorie and ar.idcategorie='".$varidcotegorie."' ORDER BY ar.datecreation DESC ";
 				$resultartgroup = mysql_query($sqlartgroup);
 				while($data = mysql_fetch_assoc($resultartgroup)) {
 				
-				echo " <h2 class=\"entry-title\"><span class=\"the_title\"><a href=\"#.html#\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["titre"]."</a></span>";
+				echo " <h2 class=\"entry-title\"><span class=\"the_title\"><a href=\"#.html#\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["article_titre"]."</a></span>";
 				
-				echo " <span class=\"entry-cat\"><a href=\"#.html#\" title=\"View all posts in Fashion News\" rel=\"category tag\">".$data["titre"]."</a></span></h2>";
+				echo " <span class=\"entry-cat\"><a href=\"#.html#\" title=\"View all posts in Fashion News\" rel=\"category tag\">".$data["categorie_titre"]."</a></span></h2>";
 					
 				echo " <div class=\"entry-meta row-fluid\">
 						<ul class=\"clearfix\">
-							<li><img alt=\"\" src=\"Archives_Magazine_files/avatar.png\" height=\"15\" width=\"15\"><a href=\"#.html#\" title=\"Posts by Admin\" rel=\"author\">Admin</a></li>
-							<li><img src=\"Archives_Magazine_files/time.png\" alt=\"\">August 12, 2013</li>
+							<li><img alt=\"\" src=\"Archives_Magazine_files/avatar.png\" height=\"15\" width=\"15\"><a href=\"#.html#\" title=\"Posts by ".$data["article_posteur"]."\" rel=\"author\">".$data["article_posteur"]."</a></li>
+							<li><img src=\"Archives_Magazine_files/time.png\" alt=\"\">".$data["article_datecreation"]."</li>
 							<li><img src=\"Archives_Magazine_files/view-bg.png\" alt=\"\">5726 </li>
-							<li><img src=\"Archives_Magazine_files/komen.png\" alt=\"\"><a href=\"#.html#\" title=".$data["titre"].">0 Comment</a></li>
+							<li><img src=\"Archives_Magazine_files/komen.png\" alt=\"\"><a href=\"#.html#\" title=".$data["article_titre"].">0 Comment</a></li>
 							<li class=\"tagz\"><img src=\"Archives_Magazine_files/tags-icon.png\" alt=\"\"><a href=\"#.html\" rel=\"tag\">Grid</a><br></li>
 						</ul>
 					</div>";	
 				
-			
+			//date("F j, Y");
 				
 				echo  " <div class=\"entry-content\">
-						<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
-						<p><img width=\"774\" height=\"320\" src=".$data["contenuimage"]." alt=\"shutterstock_134257640\"></p>
+						<a href=\"#.html\" title=".$data["article_titre"]." rel=\"bookmark\">
+						<p><img width=\"774\" height=\"320\" src=".$data["article_contenuimage"]." alt=\"shutterstock_134257640\"></p>
 						</a>
-						<p>".$data["contenutxt"]."
+						<p>".$data["article_contenutxt"]."
 						</p><p class=\"moretag\"><a href=\"#.html\"> Read more</a></p>
 					</div>
 				</article>";
@@ -253,20 +277,35 @@ require_once("../Include/DB.php");
 				
 				
 				
-				$sqlartgroup="select * from article ar,categorie cat where cat.idcategorie=ar.idcategorie and ar.idarticle='".$varidarticle."' ";
+				$sqlartgroup="select  
+				ar.posteur article_posteur,
+				ar.idarticle,
+
+				ar.titre as article_titre,
+ar.introtxt as article_introtxt,
+ar.contenutxt as article_contenutxt,
+ar.contenuimage as article_contenuimage,
+ar.afficher,
+ar.nbrlecture,
+ar.datecreation,
+cat.idcategorie,
+cat.titre as categorie_titre,
+cat.afficher,
+cat.iconecategorie 
+				from article ar,categorie cat where cat.idcategorie=ar.idcategorie and ar.idarticle='".$varidarticle."' ORDER BY ar.datecreation DESC ";
 				$resultartgroup = mysql_query($sqlartgroup);
 				while($data = mysql_fetch_assoc($resultartgroup)) {
 				
-				echo " <h2 class=\"entry-title\"><span class=\"the_title\"><a href=\"#.html#\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["titre"]."</a></span>";
+				echo " <h2 class=\"entry-title\"><span class=\"the_title\"><a href=\"#.html#\" title=\"Permalink to Lectus non rutrum pulvinar urna leo dignissim lorem\" rel=\"bookmark\">".$data["article_titre"]."</a></span>";
 				
-				echo " <span class=\"entry-cat\"><a href=\"#.html#\" title=\"View all posts in Fashion News\" rel=\"category tag\">".$data["titre"]."</a></span></h2>";
+				echo " <span class=\"entry-cat\"><a href=\"#.html#\" title=\"View all posts in Fashion News\" rel=\"category tag\">".$data["categorie_titre"]."</a></span></h2>";
 					
 				echo " <div class=\"entry-meta row-fluid\">
 						<ul class=\"clearfix\">
-							<li><img alt=\"\" src=\"Archives_Magazine_files/avatar.png\" height=\"15\" width=\"15\"><a href=\"#.html#\" title=\"Posts by Admin\" rel=\"author\">Admin</a></li>
+							<li><img alt=\"\" src=\"Archives_Magazine_files/avatar.png\" height=\"15\" width=\"15\"><a href=\"#.html#\" title=\"Posts by ".$data["article_posteur"]."\" rel=\"author\">".$data["article_posteur"]."</a></li>
 							<li><img src=\"Archives_Magazine_files/time.png\" alt=\"\">August 12, 2013</li>
 							<li><img src=\"Archives_Magazine_files/view-bg.png\" alt=\"\">5726 </li>
-							<li><img src=\"Archives_Magazine_files/komen.png\" alt=\"\"><a href=\"#.html#\" title=".$data["titre"].">0 Comment</a></li>
+							<li><img src=\"Archives_Magazine_files/komen.png\" alt=\"\"><a href=\"#.html#\" title=".$data["article_titre"].">0 Comment</a></li>
 							<li class=\"tagz\"><img src=\"Archives_Magazine_files/tags-icon.png\" alt=\"\"><a href=\"#.html\" rel=\"tag\">Grid</a><br></li>
 						</ul>
 					</div>";	
@@ -274,10 +313,10 @@ require_once("../Include/DB.php");
 			
 				
 				echo  " <div class=\"entry-content\">
-						<a href=\"#.html\" title=".$data["titre"]." rel=\"bookmark\">
-						<p><img width=\"774\" height=\"320\" src=".$data["contenuimage"]." alt=\"shutterstock_134257640\"></p>
+						<a href=\"#.html\" title=".$data["article_titre"]." rel=\"bookmark\">
+						<p><img width=\"774\" height=\"320\" src=".$data["article_contenuimage"]." alt=\"shutterstock_134257640\"></p>
 						</a>
-						<p>".$data["contenutxt"]."
+						<p>".$data["article_contenutxt"]."
 						</p><p class=\"moretag\"><a href=\"#.html\"> Read more</a></p>
 					</div>
 				</article>";

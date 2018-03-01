@@ -4,6 +4,13 @@ require_once("../Include/DB.php");
 
 
 
+//champ posteur
+if($_POST['posteur']!="")      
+	$posteur=$_POST['posteur'];
+else      
+	$posteur="Mag.ma";
+
+
 //champ
 if($_POST['Title']!="")      
 	$Title=$_POST['Title'];
@@ -106,8 +113,8 @@ $temp_contenutxt=str_replace("'"," ",$contenutxt);
 
 // fin de formatage
 
-$sql="INSERT INTO article (idarticle, titre,introtxt,contenutxt, contenuimage, afficher, nbrlecture, datecreation, idcategorie) 
-VALUES (NULL, '$temp_Title', '$temp_introtxt','$temp_contenutxt', '$contenuimage', '$affciher', 0, '$datecreation', '$idcategorie')";
+$sql="INSERT INTO article (idarticle, titre,introtxt,contenutxt, contenuimage, afficher, nbrlecture, datecreation, idcategorie,posteur) 
+VALUES (NULL, '$temp_Title', '$temp_introtxt','$temp_contenutxt', '$contenuimage', '$affciher', 0, '$datecreation', '$idcategorie','$posteur')";
 
 
 //echo "---->sql  est --->".$sql;
